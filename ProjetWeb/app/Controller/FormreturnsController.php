@@ -108,5 +108,11 @@ class FormreturnsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
         
-        public function pdf(){}
+        public function exportpdf(){
+            //pour éviter les outputs du debug de cake
+            //Configure::write('debug',0);
+            //la solution depuis cakephp 2
+            $this->response->type('pdf');
+            $this->layout='pdf';
+        }
 }
