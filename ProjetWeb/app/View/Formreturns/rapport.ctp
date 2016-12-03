@@ -28,7 +28,7 @@
 
             </br>
             </br>
-            <input type="submit" value ="Envoyer" />
+            <input type="submit" value ="Consulter le rapport" />
 
      </form>
 </div>
