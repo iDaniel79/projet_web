@@ -9,6 +9,9 @@
  * @author    Laurent MINGUET <webmaster@html2pdf.fr>
  * @copyright 2016 Laurent MINGUET
  */
+App::import('Vendor', 'html2pdf/Vendor/tecnickcom/tcpdf/tcpdf');
+//require_once('../vendor/tecnickcom/tcpdf/tcpdf.php');
+
 class HTML2PDF_myPdf extends TCPDF
 {
     protected $_footerParam = array();

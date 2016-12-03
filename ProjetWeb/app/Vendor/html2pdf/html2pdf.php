@@ -10,6 +10,13 @@
  * @copyright 2016 Laurent MINGUET
  */
 require_once(dirname(__FILE__).'/_class/tcpdfConfig.php');
+require_once(dirname(__FILE__).'/_class/locale.class.php');
+require_once(dirname(__FILE__).'/_class/myPdf.class.php');
+require_once(dirname(__FILE__).'/_class/exception.class.php');
+require_once(dirname(__FILE__).'/_class/parsingCss.class.php');
+require_once(dirname(__FILE__).'/_class/parsingHtml.class.php');
+require_once(dirname(__FILE__).'/vendor/tecnickcom/tcpdf/tcpdf.php');
+
 
 class HTML2PDF
 {

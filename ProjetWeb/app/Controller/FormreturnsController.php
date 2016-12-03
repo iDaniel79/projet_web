@@ -22,6 +22,7 @@ class FormreturnsController extends AppController {
  *
  * @return void
  */
+ 
 	public function index() {
 		$this->Formreturn->recursive = 0;
 		$this->set('formreturns', $this->Paginator->paginate());
@@ -108,11 +109,49 @@ class FormreturnsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
         
-        public function exportpdf(){
-            //pour éviter les outputs du debug de cake
-            //Configure::write('debug',0);
-            //la solution depuis cakephp 2
-            $this->response->type('pdf');
-            $this->layout='pdf';
-        }
+//        public function exportpdf(){
+//            //pour éviter les outputs du debug de cake
+//            //Configure::write('debug',0);
+//            //la solution depuis cakephp 2
+//            $this->response->type('pdf');
+//            $this->layout='pdf';
+//        }
+        
+        public function pdf() {
+            $formreturn = $this->Formreturn->find('list',array(
+                'fileds'=>'*',
+                'joins'=>array(
+                    array(                        
+                        'table' => 'ufs',
+                        'alias' => 'UF',
+                        'type' => 'LEFT',
+                        'conditions' =>array('Uf.id = Formreturn.ufs_id')
+                    )
+                )
+            ));
+            debug($formreturn);
+            die();
+//            $sql= "SELECT * FROM `formreturns` inner join `ufs` on `formreturns`.ufs_id=`ufs`.id WHERE ufs.id = '".$uf."' ";
+//            debug($this->Formreturn->query($sql));
+//            $this->set('formreturn',$this->Formreturn->query($sql));
+//            $this->autoRender = false;
+//            $this->layout = null;
+//            $view = new View($this, false);
+//            $view->set('variable', true);
+//            $view_output = $view->render('pdf');
+//            // Load from Vendors dir
+//            App::import('Vendor', 'html2pdf', array('file' => 'html2pdf' .DS . 'html2pdf.php'));
+//            $html2pdf = new HTML2PDF('P', 'A4', 'fr');
+//            $html2pdf->pdf->SetDisplayMode('fullpage');
+//            $html2pdf->writeHTML($view_output);
+//            $html2pdf->Output('test.pdf', 'D');
+	}
+        
+         public function essai(){
+             //$sql= "SELECT * FROM `formreturns` inner join `ufs` on `formreturns`.ufs_id=`ufs`.id WHERE ufs.name = '".$uf."' ";
+            // debug($this->Formreturn->query('SELECT * FROM formreturns'));
+//             $sql= "SELECT * FROM `formreturns` inner join `ufs` on `formreturns`.ufs_id=`ufs`.id WHERE ufs.name = '".$uf."' ";
+//             $this->set('formreturn',$this->Formreturn->query($sql));
+         }
+
 }

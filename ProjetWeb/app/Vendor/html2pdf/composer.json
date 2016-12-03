@@ -22,7 +22,7 @@
     },
     "autoload": {
         "files": [
-            "html2pdf.class.php",
+            "html2pdf.php",
             "_class/exception.class.php",
             "_class/locale.class.php",
             "_class/myPdf.class.php",
