@@ -57,7 +57,7 @@ class TokensController extends AppController {
 				$this->Flash->error(__('The token could not be saved. Please, try again.'));
 			}
 		}
-		$ufs = $this->Token->Uf->find('list');
+		$ufs = $this->Token->Ufs->find('list');
 		$this->set(compact('ufs'));
 	}
 
@@ -83,7 +83,7 @@ class TokensController extends AppController {
 			$options = array('conditions' => array('Token.' . $this->Token->primaryKey => $id));
 			$this->request->data = $this->Token->find('first', $options);
 		}
-		$ufs = $this->Token->Uf->find('list');
+		$ufs = $this->Token->Ufs->find('list');
 		$this->set(compact('ufs'));
 	}
 
