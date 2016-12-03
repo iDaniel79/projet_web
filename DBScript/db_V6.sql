@@ -91,7 +91,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `db_formulaires`.`formulaires` ;
 
 CREATE TABLE IF NOT EXISTS `db_formulaires`.`formulaires` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `version` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `titre_1` TEXT(200) NULL,
@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `db_formulaires`.`formulaires` (
   `titre_4` TEXT(200) NULL,
   `titre_5` TEXT(200) NULL,
   `titre_6` TEXT(200) NULL,
+  `titre_7` TEXT(200) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
