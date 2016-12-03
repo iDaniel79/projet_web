@@ -17,6 +17,7 @@
 		echo $this->Form->input('country');
 		echo $this->Form->input('validate');
 		echo $this->Form->input('create');
+		echo $this->Form->input('classrooms_id');
 		echo $this->Form->input('Role');
 		echo $this->Form->input('Uf');
 	?>
@@ -28,6 +29,8 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Classrooms'), array('controller' => 'classrooms', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Classrooms'), array('controller' => 'classrooms', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>

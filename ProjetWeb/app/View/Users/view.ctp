@@ -76,6 +76,11 @@
 			<?php echo h($user['User']['create']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Classrooms'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($user['Classrooms']['id'], array('controller' => 'classrooms', 'action' => 'view', $user['Classrooms']['id'])); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -85,6 +90,8 @@
 		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user['User']['id']))); ?> </li>
 		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Classrooms'), array('controller' => 'classrooms', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Classrooms'), array('controller' => 'classrooms', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>

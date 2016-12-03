@@ -25,9 +25,11 @@ class UserFixture extends CakeTestFixture {
 		'country' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 45, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'validate' => array('type' => 'boolean', 'null' => true, 'default' => null),
 		'create' => array('type' => 'datetime', 'null' => true, 'default' => null),
+		'classrooms_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'index'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1),
-			'email_UNIQUE' => array('column' => 'email', 'unique' => 1)
+			'email_UNIQUE' => array('column' => 'email', 'unique' => 1),
+			'fk_users_classrooms1_idx' => array('column' => 'classrooms_id', 'unique' => 0)
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
@@ -53,7 +55,8 @@ class UserFixture extends CakeTestFixture {
 			'postal_code' => 'Lorem ',
 			'country' => 'Lorem ipsum dolor sit amet',
 			'validate' => 1,
-			'create' => '2016-12-01 22:31:29'
+			'create' => '2016-12-03 14:16:44',
+			'classrooms_id' => 1
 		),
 	);
 

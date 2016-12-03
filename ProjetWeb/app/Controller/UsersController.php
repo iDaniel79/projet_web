@@ -57,9 +57,10 @@ class UsersController extends AppController {
 				$this->Flash->error(__('The user could not be saved. Please, try again.'));
 			}
 		}
+		$classrooms = $this->User->Classrooms->find('list');
 		$roles = $this->User->Role->find('list');
 		$ufs = $this->User->Uf->find('list');
-		$this->set(compact('roles', 'ufs'));
+		$this->set(compact('classrooms', 'roles', 'ufs'));
 	}
 
 /**
@@ -84,9 +85,10 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
+		$classrooms = $this->User->Classrooms->find('list');
 		$roles = $this->User->Role->find('list');
 		$ufs = $this->User->Uf->find('list');
-		$this->set(compact('roles', 'ufs'));
+		$this->set(compact('classrooms', 'roles', 'ufs'));
 	}
 
 /**
