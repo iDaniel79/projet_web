@@ -4,45 +4,22 @@
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('email'); ?></th>
-			<th><?php echo $this->Paginator->sort('password'); ?></th>
+			<th><?php echo $this->Paginator->sort('email'); ?></th>			
 			<th><?php echo $this->Paginator->sort('firstname'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('birthdate'); ?></th>
-			<th><?php echo $this->Paginator->sort('phone'); ?></th>
-			<th><?php echo $this->Paginator->sort('mobile'); ?></th>
-			<th><?php echo $this->Paginator->sort('street'); ?></th>
-			<th><?php echo $this->Paginator->sort('number'); ?></th>
-			<th><?php echo $this->Paginator->sort('city'); ?></th>
-			<th><?php echo $this->Paginator->sort('postal_code'); ?></th>
-			<th><?php echo $this->Paginator->sort('country'); ?></th>
-			<th><?php echo $this->Paginator->sort('active'); ?></th>
-			<th><?php echo $this->Paginator->sort('create'); ?></th>
-			<th><?php echo $this->Paginator->sort('classrooms_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>			
+			<th><?php echo $this->Paginator->sort('validate'); ?></th>
+			<th><?php echo $this->Paginator->sort('create'); ?></th>			
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>		
 		<td><?php echo h($user['User']['firstname']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['birthdate']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['phone']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['mobile']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['street']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['number']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['city']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['postal_code']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['country']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['validate']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['create']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($user['Classrooms']['id'], array('controller' => 'classrooms', 'action' => 'view', $user['Classrooms']['id'])); ?>
-		</td>
+		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>		
+		<td><?php echo h($user['User']['active']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['create']); ?>&nbsp;</td>		
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>

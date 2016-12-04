@@ -21,6 +21,8 @@
 		echo $this->Form->input('classrooms_id');
 		echo $this->Form->input('Role');
 		echo $this->Form->input('Uf');
+		echo $this->Form->input('password1',array('label' => 'Mdp'));
+		echo $this->Form->input('password2',array('label' => 'Confirmation du mdp'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

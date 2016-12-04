@@ -95,30 +95,38 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function edit($id = null) 	
+	{
+				//if (!$this->User->exists($id)) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
-		}
+		}		
+		$error = false;
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->User->save($this->request->data)) {
 
-				// envoi un email pour activer son compte
-				$link = array('controller' =>'users', 'action'=>'activate',
-					$this->User->id.'-'.md5($data['User']['password']));
-				App::uses('CakeEmail','Network/Email');
-				$email = new CakeEmail('default');
-				$email->to($data['User']['email'])
-						->subject('Test email :: inscription')
-						->emailFormat('html')
-						->template('add')
-						->viewvars(array('email' => $data['User']['email'], 'link' => $link))
-						->send();
+			//changer le mdp avec confirmation
+			$data = $this->request->data;			
+			//$data['User']['id'] =$d['User']['id'];
+			
+			if(!empty($data['User']['password1']))
+			{
+				if($data['User']['password1'] == $data['User']['password2'])
+				{					
+					$data['User']['password'] =  Security::hash($data['User']['password1'],null,true);					
+				}
+				else
+				{
+					$error = true;						
+				}
+			}	
 
+			if ($this->User->save($data)) {			
 				$this->Flash->success(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Flash->error(__('The user could not be saved. Please, try again.'));
 			}
+			if($error){$this->User->validationErrors['password2'] = array('Les mots de passe ne sont pas identique');}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
@@ -127,8 +135,8 @@ class UsersController extends AppController {
 		$roles = $this->User->Role->find('list');
 		$ufs = $this->User->Uf->find('list');
 		$this->set(compact('classrooms', 'roles', 'ufs'));
+		
 	}
-
 /**
  * delete method
  *
