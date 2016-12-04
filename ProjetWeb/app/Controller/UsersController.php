@@ -19,7 +19,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout','activate');
+        $this->Auth->allow('add', 'logout','activate','password');
     }
 
 /**
@@ -193,6 +193,7 @@ class UsersController extends AppController {
 	}
 
 	// password oublié
+// password oublié
 	public function password()
 	{
 		if(!empty($this->request->params['named']['token']))
@@ -200,7 +201,7 @@ class UsersController extends AppController {
 			$token = $this->request->params['named']['token'];
 			$token = explode('-',$token);
 			$user = $this->User->find('first',array(
-				'conditions'=> array('id'=> $token[0],'MD5(User.password)'=> $token[1],'active'=> 1)		
+				'conditions'=> array('User.id'=> $token[0],'MD5(User.password)'=> $token[1],'User.active'=> 1)		
 			));				
 			if($user)
 			{
@@ -208,7 +209,7 @@ class UsersController extends AppController {
 				$newpassword = md5(uniqid(rand(),true));
 				$newpassword = substr($newpassword,0,10);
 				$this->User->saveField('password',Security::hash($newpassword, null,true));
-				$this->Session->setFlash("Votre nouveau mot de passe : $newpassword");
+				$this->Flash->success(__("Votre nouveau mot de passe : $newpassword"));				
 			}
 			else
 			{
