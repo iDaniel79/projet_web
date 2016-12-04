@@ -38,7 +38,7 @@ class AppController extends Controller {
 						'authenticate' => array(
 							'Form' => array( 
 								'fields' => array('username' => 'email'),
-								'scope'=> array('User.active' => 1 ) // verifie pour ce loguer tous ceux qui on un active  à 1 = activé
+								'scope'=> array('User.validate' => 1 ) // verifie pour ce loguer tous ceux qui on un active  à 1 = activé
 												)
 											)
 									)
