@@ -68,14 +68,14 @@ class UsersController extends AppController {
 				$link = array('controller' =>'users', 'action'=>'activate',
 					$this->User->id.'-'.md5($data['User']['password']));
 				App::uses('CakeEmail','Network/Email');
-				$email = new CakeEmail();
+				$email = new CakeEmail('smtp');
 				$email->from('noreply@localhost.com')
 						->to($data['User']['email'])
 						->subject('Test email :: inscription')
 						->emailFormat('html')
 						->template('add')
 						->viewvars(array('email' => $data['User']['email'], 'link' => $link))
-						->send();				
+						->send('mail de test');				
 				$this->Flash->success(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

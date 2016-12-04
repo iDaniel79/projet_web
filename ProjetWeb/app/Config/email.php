@@ -46,16 +46,16 @@ class EmailConfig {
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
-		'host' => 'localhost',
-		'port' => 25,
+		'from' => array('webprojet2016@gmail.com'),
+		'host' => 'ssl://smtp.gmail.com',
+		'port' => 465,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'webprojet2016@gmail.com',
+		'password' => 'projetweb2016',
 		'client' => null,
-		'log' => false,
-		//'charset' => 'utf-8',
-		//'headerCharset' => 'utf-8',
+		'log' => true,
+		'charset' => 'utf-8',
+		'headerCharset' => 'utf-8',
 	);
 
 	public $fast = array(
