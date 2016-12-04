@@ -55,12 +55,15 @@ class UsersController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->User->create();
+
+			$data = $this->request->data;
+
+			$data['User']['id'] = null;
 			if(!empty($data['User']['password'])){
 
 				$data['User']['password'] = Security::hash($data['User']['password'],null,true);				
 			}
-			if ($this->User->save($this->request->data)) {
+			if ($this->User->save($data,true,array('email','password'))) {
 				$this->Flash->success(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -161,7 +164,7 @@ class UsersController extends AppController {
 			if ($this->request->is('post'));{
 				if($this->Auth->login()){					
 					$this->Session->setFlash("Vous etes maintenant connecté");
-					$this->redirect('/');
+					$this->redirect('../users/index');
 				}
 				else{					
 					$this->Session->setFlash('Email ou mdp incorrect');
