@@ -66,9 +66,9 @@
 			<?php echo h($user['User']['country']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Validate'); ?></dt>
+		<dt><?php echo __('Active'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['validate']); ?>
+			<?php echo h($user['User']['active']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Create'); ?></dt>

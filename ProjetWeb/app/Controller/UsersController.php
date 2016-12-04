@@ -19,7 +19,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
+        $this->Auth->allow('add', 'logout','activate');
     }
 
 /**
@@ -61,19 +61,21 @@ class UsersController extends AppController {
 			$data['User']['id'] = null;
 			if(!empty($data['User']['password'])){
 
-				$data['User']['password'] = Security::hash($data['User']['password'],null,true);				
+				$data['User']['password'] = Security::hash($data['User']['password'],null,true);
+				$data['User']['active']	 = 0;		
 			}
-			if ($this->User->save($data,true,array('email','password'))) {
+			if($this->User->save($data,true,array('email','password','active'))){
 				$link = array('controller' =>'users', 'action'=>'activate',
 					$this->User->id.'-'.md5($data['User']['password']));
 				App::uses('CakeEmail','Network/Email');
-				$email = new CakeEmail('default');
-				$email->to($data['User']['email'])
+				$email = new CakeEmail();
+				$email->from('noreply@localhost.com')
+						->to($data['User']['email'])
 						->subject('Test email :: inscription')
 						->emailFormat('html')
 						->template('add')
 						->viewvars(array('email' => $data['User']['email'], 'link' => $link))
-						->send();
+						->send();				
 				$this->Flash->success(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -149,11 +151,13 @@ class UsersController extends AppController {
 	}
 
 	// activer le compte pour pouvoir ce connecter
-	function activate($token){
+	public function activate($token){
+
+		debug($token);
 
 		$token = explode('-',$token);
 		$user = $this->User->find('first',array(
-				'conditions'=> array('id'=> $token[0],'MD5(User.password)'=> $token[1],'active'=> 0)		
+				'conditions'=> array('User.id'=> $token[0],'MD5(User.password)'=> $token[1],'User.active'=> 0)		
 			));
 		debug($user);
 		if(!empty($user)){
@@ -166,7 +170,7 @@ class UsersController extends AppController {
 		else{
 			//$this->Session->setFlash("Lien d'ectivation est hors service");
 		}
-		$this->redirect('/');
+		$this->redirect('../users/index');
 	}
 
 	public function login(){

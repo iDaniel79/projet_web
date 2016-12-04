@@ -7,7 +7,7 @@
 </p>
 
 <p>
-		< ?php debug($this->html->url($link,true));
+		<?php debug($this->html->url($link,true));
 		die();
 		 ?>	
 	<?php echo $this->Html->link('Activer mon compte',$this->Html->url($link,true)); ?>	
