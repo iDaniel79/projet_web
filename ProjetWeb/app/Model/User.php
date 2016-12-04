@@ -22,24 +22,23 @@ class User extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+		'email' => array( 
+			array(
+			'rule' => 'email',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => "L'email n'est pas valide"
 			),
+			array(
+				'rule' => 'isUnique',
+				'message' => "Cette adresse est déjà utilisée"
+			)
+			
 		),
 		'password' => array(
-			'notBlank' => array(
-				'rule' => array('notBlank'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			'rule' => 'notEmpty',
+			'message' => "Vous devez entrer un mdp",
+			'allowEmpty' => false
 			),
 		),
 		'firstname' => array(
