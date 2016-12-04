@@ -71,7 +71,7 @@ class UsersController extends AppController {
 				$email = new CakeEmail('smtp');
 				$email->from('noreply@localhost.com')
 						->to($data['User']['email'])
-						->subject('Test email :: inscription')
+						->subject('Test email : inscription')
 						->emailFormat('html')
 						->template('add')
 						->viewvars(array('email' => $data['User']['email'], 'link' => $link))
