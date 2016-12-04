@@ -40,7 +40,6 @@ class User extends AppModel {
 			'message' => "Vous devez entrer un mdp",
 			'allowEmpty' => false
 			),
-		),
 		'firstname' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
