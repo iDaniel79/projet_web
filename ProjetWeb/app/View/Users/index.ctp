@@ -16,7 +16,7 @@
 			<th><?php echo $this->Paginator->sort('city'); ?></th>
 			<th><?php echo $this->Paginator->sort('postal_code'); ?></th>
 			<th><?php echo $this->Paginator->sort('country'); ?></th>
-			<th><?php echo $this->Paginator->sort('validate'); ?></th>
+			<th><?php echo $this->Paginator->sort('active'); ?></th>
 			<th><?php echo $this->Paginator->sort('create'); ?></th>
 			<th><?php echo $this->Paginator->sort('classrooms_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>

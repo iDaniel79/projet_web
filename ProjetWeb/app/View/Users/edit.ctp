@@ -16,7 +16,7 @@
 		echo $this->Form->input('city');
 		echo $this->Form->input('postal_code');
 		echo $this->Form->input('country');
-		echo $this->Form->input('validate');
+		echo $this->Form->input('active');
 		echo $this->Form->input('create');
 		echo $this->Form->input('classrooms_id');
 		echo $this->Form->input('Role');
