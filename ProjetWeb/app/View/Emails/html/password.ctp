@@ -7,9 +7,7 @@
 </p>
 
 <p>
-		<?php debug($this->html->url($link,true));
-		die();
-		?>	
+		
 	<?php echo $this->Html->link('Me rappeller mon mdp',$this->Html->url($link,true)); ?>	
 		
 </p>

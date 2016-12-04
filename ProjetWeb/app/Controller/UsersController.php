@@ -184,12 +184,13 @@ class UsersController extends AppController {
 	public function login(){
 
 			if ($this->request->is('post'));{
-				if($this->Auth->login()){					
-					$this->Session->setFlash("Vous etes maintenant connecté");
+				if($this->Auth->login()){	
+					$this->Flash->success(__('Vous etes maintenant connecté'));			
+				
 					$this->redirect('../users/index');
 				}
 				else{					
-					$this->Session->setFlash('Email ou mdp incorrect');
+					$this->Flash->error(__('Email ou mdp incorrect'));
 				}
 			}
 	}
@@ -216,8 +217,9 @@ class UsersController extends AppController {
 				$this->User->id = $user['User']['id'];
 				$newpassword = md5(uniqid(rand(),true));
 				$newpassword = substr($newpassword,0,10);
-				$this->User->saveField('password',Security::hash($newpassword, null,true));
-				$this->Flash->success(__("Votre nouveau mot de passe : $newpassword"));				
+				$this->User->saveField('password',Security::hash($newpassword, null,true));					
+				$this->Flash->success(__("Votre nouveau mot de passe : $newpassword"));	
+
 			}
 			else
 			{
@@ -243,8 +245,9 @@ class UsersController extends AppController {
 					$user['User']['id'].'-'.md5($user['User']['password']));
 
 				App::uses('CakeEmail','Network/Email');
-				$email = new CakeEmail('default');
-				$email->to($user['User']['email'])
+				$email = new CakeEmail('smtp');
+				$email->from('noreply@localhost.com')
+						->to($user['User']['email'])
 						->subject('Test email :: mot de passe oublié')
 						->emailFormat('html')
 						->template('password')
