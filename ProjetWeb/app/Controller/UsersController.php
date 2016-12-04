@@ -64,6 +64,16 @@ class UsersController extends AppController {
 				$data['User']['password'] = Security::hash($data['User']['password'],null,true);				
 			}
 			if ($this->User->save($data,true,array('email','password'))) {
+				$link = array('controller' =>'users', 'action'=>'activate',
+					$this->User->id.'-'.md5($data['User']['password']));
+				App::uses('CakeEmail','Network/Email');
+				$email = new CakeEmail('default');
+				$email->to($data['User']['email'])
+						->subject('Test email :: inscription')
+						->emailFormat('html')
+						->template('add')
+						->viewvars(array('email' => $data['User']['email'], 'link' => $link))
+						->send();
 				$this->Flash->success(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
