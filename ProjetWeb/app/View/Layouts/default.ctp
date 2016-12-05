@@ -42,7 +42,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				<h1><?php echo $this->Html->link( "Se déconnecter",array('action'=> "logout", 'controller'=>'users')); ?></h1>
 			<?php }else{ ?>
 				<h1><?php echo $this->Html->link( "Se connecter",array('action'=> "login", 'controller'=>'users')); ?></h1>				
-			<?php } ?>
+			<?php } ?> 
 		</div>
 		<div id="content">
 
