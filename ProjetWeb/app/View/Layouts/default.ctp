@@ -37,8 +37,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+		<div id="header">			
+			<?php if(AuthComponent::user('id')){ ?>
+				<h1><?php echo $this->Html->link( "Se déconnecter",array('action'=> "logout", 'controller'=>'users')); ?></h1>
+			<?php }else{ ?>
+				<h1><?php echo $this->Html->link( "Se connecter",array('action'=> "login", 'controller'=>'users')); ?></h1>				
+			<?php } ?>
 		</div>
 		<div id="content">
 
