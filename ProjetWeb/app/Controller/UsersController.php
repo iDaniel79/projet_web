@@ -251,7 +251,7 @@ class UsersController extends AppController {
 						->subject('Test email :: mot de passe oublié')
 						->emailFormat('html')
 						->template('password')
-						->viewvars(array('email' => $data['User']['email'], 'link' => $link))
+						->viewvars(array('email' => $user['User']['email'], 'link' => $link))
 						->send();
 
 			}
