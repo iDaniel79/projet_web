@@ -11,6 +11,11 @@
 			<?php echo h($zone['Zone']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Path'); ?></dt>
+		<dd>
+			<?php echo h($zone['Zone']['path']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
