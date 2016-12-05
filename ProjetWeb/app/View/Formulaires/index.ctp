@@ -12,6 +12,8 @@
 			<th><?php echo $this->Paginator->sort('titre_4'); ?></th>
 			<th><?php echo $this->Paginator->sort('titre_5'); ?></th>
 			<th><?php echo $this->Paginator->sort('titre_6'); ?></th>
+                        <th><?php echo $this->Paginator->sort('titre_7'); ?></th>
+                        <th><?php echo $this->Paginator->sort('token_length'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -27,6 +29,8 @@
 		<td><?php echo h($formulaire['Formulaire']['titre_4']); ?>&nbsp;</td>
 		<td><?php echo h($formulaire['Formulaire']['titre_5']); ?>&nbsp;</td>
 		<td><?php echo h($formulaire['Formulaire']['titre_6']); ?>&nbsp;</td>
+                <td><?php echo h($formulaire['Formulaire']['titre_7']); ?>&nbsp;</td>
+                <td><?php echo h($formulaire['Formulaire']['token_length']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $formulaire['Formulaire']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $formulaire['Formulaire']['id'])); ?>

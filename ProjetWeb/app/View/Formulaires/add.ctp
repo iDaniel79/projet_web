@@ -11,6 +11,8 @@
 		echo $this->Form->input('titre_4');
 		echo $this->Form->input('titre_5');
 		echo $this->Form->input('titre_6');
+                echo $this->Form->input('titre_7');
+                echo $this->Form->input('token_length');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
