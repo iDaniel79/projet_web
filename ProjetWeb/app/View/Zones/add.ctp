@@ -4,6 +4,7 @@
 		<legend><?php echo __('Add Zone'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('path');
 		echo $this->Form->input('Role');
 	?>
 	</fieldset>
