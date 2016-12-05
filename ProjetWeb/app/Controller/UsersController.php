@@ -10,6 +10,7 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+public $uses = array('User','Classroom','Role');
 /**
  * Components
  *
@@ -259,6 +260,89 @@ class UsersController extends AppController {
 			}
 
 		}
+
+	}
+	public function import(){
+
+		$file = fopen('C:\wamp64\www\projet_web\CSV\test.csv', 'r');
+
+		// Ouverture du fichier
+	    if ($file) 
+	    {
+	        $first = 1;
+	        // Compteur de ligne
+	        $r = 0;
+	        while ($row = fgetcsv($file,1000,";")) 
+	        {
+				// Si premier passage, passe le HEADER
+	        	if($first)
+	        	{
+	        		$first = 0;
+	        	}
+	        	else
+	        	{
+		        	$email = $row[5];
+					$firstname = $row[2];
+					$name = $row[3];
+					$birthdate = $row[4];
+					$phone = $row[6];
+					$mobile = $row[7];
+					$street = $row[8];
+					$city = $row[10];
+					$postal_code = $row[9];
+					$code = $row[12];
+					// Suppression du # dans CID
+					$string = explode('#',$row[11]);
+					$classrooms_id = $string[0];
+					
+
+					
+					// Si la class n'existe pas, en crée une en DB
+					if(!$this->Classroom->find('count',array(
+						'conditions' => array('id'=> $classrooms_id )
+						))){
+
+						$this->Classroom->save(array('id' => $classrooms_id,
+													'code' => $code));
+
+					}
+					// Si email n'existe pas, crée le nouvel user
+					if(!$this->User->find('count',array(
+						'conditions' => array('email'=> $email )
+						))){
+
+						$id_elv = $this->Role->find('first',array(
+							'conditions' => array('role'=> 'Eleve')));
+						$role_id = $id_elv['Role']['id'];
+						//debug($id_eleve['Role']['id']);
+						//die();
+						$this->User->query("INSERT INTO `users`(`email`,`firstname`,`birthdate`,`name`,`phone`,`mobile`,`street`,`city`,`postal_code`,`classrooms_id`) VALUES ('$email','$firstname','$birthdate','$name','$phone','$mobile','$street','$city','$postal_code','$classrooms_id');");
+						
+						// Récupère l'id du dernier USER inséré
+						$id_uti = $this->User->find('first', array(
+							'order' => array('User.id' => 'desc')));
+
+						$user_id = $id_uti['User']['id'];
+
+						$this->User->query("INSERT INTO `users_roles`(`user_id`,`role_id`) VALUES ('$user_id','$role_id');");
+
+						//$this->Role->save(array('id' => ))
+			            //debug($id_user);
+			            //debug($id_user['User']['id']);
+			            //die();
+
+			            //echo " Ajout de la ligne ";
+			            //echo $r+1;
+			            //echo "<br>";
+					}
+					$r++;
+	        	}
+	    	}
+
+	    }
+	    // close the file
+	    fclose($file);  
+	    die();
 
 	}
 
