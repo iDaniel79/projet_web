@@ -184,12 +184,14 @@ class UsersController extends AppController {
 	public function login(){
 
 			if ($this->request->is('post'));{
-				if($this->Auth->login()){	
+				if($this->Auth->login())
+				{	
 					$this->Flash->success(__('Vous etes maintenant connecté'));			
 				
 					$this->redirect('../users/index');
 				}
-				else{					
+				else
+				{					
 					$this->Flash->error(__('Email ou mdp incorrect'));
 				}
 			}
