@@ -179,7 +179,7 @@ public $uses = array('User','Classroom','Role');
 		else{
 			//$this->Session->setFlash("Lien d'ectivation est hors service");
 		}
-		$this->redirect('../users/index');
+		$this->redirect('../users/changepassword');
 	}
 
 	public function login(){
@@ -260,6 +260,40 @@ public $uses = array('User','Classroom','Role');
 			}
 
 		}
+
+	}
+
+
+	public function changepassword()
+	{
+		if ($this->request->is('post')) {
+
+			$data = $this->request->data;			
+						
+			if(!empty($data['User']['password1']))
+			{
+				if($data['User']['password1'] == $data['User']['password2'])
+				{					
+					$psw =  $data['User']['password2'];
+					debug($this->Auth->user());
+					$d = $this->Auth->user();
+					
+					$this->User->id = $d['id'];
+					$this->User->saveField('password',Security::hash($psw, null,true));
+					$this->Flash->success(__('Vous etes maintenant connecté'));	
+				
+					$this->redirect('../users/index');						
+				}
+				else
+				{
+					$this->Flash->error(__('Les mots de passe ne sont pas identique'));	
+					
+				}
+			}	
+		}
+
+
+		
 
 	}
 	public function import(){
