@@ -46,12 +46,13 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Classrooms'), array('controller' => 'classrooms', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Classrooms'), array('controller' => 'classrooms', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
+		<li><?php //echo $this->Html->link(__('List Classrooms'), array('controller' => 'classrooms', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Classrooms'), array('controller' => 'classrooms', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

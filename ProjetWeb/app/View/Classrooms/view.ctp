@@ -16,9 +16,10 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Classroom'), array('action' => 'edit', $classroom['Classroom']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Classroom'), array('action' => 'delete', $classroom['Classroom']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $classroom['Classroom']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Classrooms'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Classroom'), array('action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Edit Classroom'), array('action' => 'edit', $classroom['Classroom']['id'])); ?> </li>
+		<li><?php //echo $this->Form->postLink(__('Delete Classroom'), array('action' => 'delete', $classroom['Classroom']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $classroom['Classroom']['id']))); ?> </li>
+		<li><?php //echo $this->Html->link(__('List Classrooms'), array('action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Classroom'), array('action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

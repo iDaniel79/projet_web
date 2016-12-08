@@ -154,7 +154,8 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+			<li><?php //echo $this->Html->link(__('New Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+                        <?php include('/../Zones/zone.ctp')?>
 		</ul>
 	</div>
 </div>

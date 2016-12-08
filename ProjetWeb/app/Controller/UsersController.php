@@ -20,7 +20,7 @@ public $uses = array('User','Classroom','Role');
 
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout','activate','password');
+        $this->Auth->allow('add','logout','activate','password');
     }
 
 /**
@@ -188,8 +188,16 @@ public $uses = array('User','Classroom','Role');
 				if($this->Auth->login())
 				{	
 					$this->Flash->success(__('Vous etes maintenant connecté'));			
-				
-					$this->redirect('../users/index');
+                                        $data = $this->Auth->user();
+                                        $_SESSION['email'] = $data['email'];                                       
+                                        $_SESSION['id_user'] = $data['id'];
+                                        $sql = 'select role FROM `roles` LEFT JOIN `users_roles` ON `users_roles`.`role_id` = `roles`.`id` '
+                                                . 'LEFT JOIN `users` ON `users_roles`.`user_id` = `users`.`id` '
+                                                . 'where users.id = "'.$_SESSION['id_user'].'"';
+                                        $roleliste = $this->User->query($sql);
+                                        $_SESSION['role'] = $roleliste[0]['roles']['role'];
+                                        
+                                        $this->redirect('../users/index');
 				}
 				else
 				{					

@@ -28,9 +28,10 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Formreturn.id')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Formreturn.id')))); ?></li>
-		<li><?php echo $this->Html->link(__('List Formreturns'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Formreturn.id')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Formreturn.id')))); ?></li>
+		<li><?php //echo $this->Html->link(__('List Formreturns'), array('action' => 'index')); ?></li>
+		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

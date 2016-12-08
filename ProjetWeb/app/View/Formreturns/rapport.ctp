@@ -1,4 +1,9 @@
-<div class="formreturns rapport">
+<div class="formreturns index">
+        <thead>
+	<tr>
+			
+	</tr>
+	</thead>
     <?php
     //    if(isset($_GET) && !empty($_GET['fUF'])){
     //        header('Location: ../pdf/');     
@@ -13,23 +18,37 @@
                 die('Erreur : ' . $e->getMessage());
             }
             $query_uf = $bdd->query("SELECT * FROM `ufs`" );
-        ?>
-    <form method="GET" action ="/projet_web/ProjetWeb/formreturns/pdf">
+    ?>
+    <tbody>
+       <dl>
+            <dt>
+            <form method="GET" action ="/projet_web/ProjetWeb/formreturns/pdf">
 
-            UF Concernée : 
+                    UF Concernée : 
 
-                    <select name="fUF"/>
-                    <?php
-                     while ($donnees = $query_uf->fetch()){
-                        echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>' ;
-                     }      
-                    ?>
-                    </select>
+                            <select name="fUF"/>
+                            <?php
+                             while ($donnees = $query_uf->fetch()){
+                                echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>' ;
+                             }      
+                            ?>
+                            </select>
 
-            </br>
-            </br>
-            <input type="submit" value ="Consulter le rapport" />
+                    </br>
+                    </br>
+                    <input type="submit" value ="Consulter le rapport" />
 
-     </form>
+             </form>
+            </dt>       
+        </dl>
+    </tbody>
 </div>
-        <?php //} ?>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php //echo $this->Html->link(__('New Formreturn'), array('action' => 'add')); ?></li>
+		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
+	</ul>
+</div>

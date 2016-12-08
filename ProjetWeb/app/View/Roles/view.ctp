@@ -106,7 +106,8 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+			<li><?php //echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+                        <?php include('/../Zones/zone.ctp')?>
 		</ul>
 	</div>
 </div>

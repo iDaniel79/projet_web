@@ -27,8 +27,9 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Formreturns'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('List Formreturns'), array('action' => 'index')); ?></li>
+		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>
