@@ -291,94 +291,119 @@ public $uses = array('User','Classroom','Role');
 				}
 			}	
 		}
-
-
-		
-
 	}
-	public function import(){
+	public function import()
+	{
 
-		$file = fopen('C:\wamp64\www\projet_web\CSV\test.csv', 'r');
+		//$file = fopen('C:\wamp64\www\projet_web\CSV\test.csv', 'r');
+		if ($this->request->is('post')) 
+		{
+			debug($this->request->data);
 
-		// Ouverture du fichier
-	    if ($file) 
-	    {
-	        $first = 1;
-	        // Compteur de ligne
-	        $r = 0;
-	        while ($row = fgetcsv($file,1000,";")) 
-	        {
-				// Si premier passage, passe le HEADER
-	        	if($first)
-	        	{
-	        		$first = 0;
-	        	}
-	        	else
-	        	{
-		        	$email = $row[5];
-					$firstname = $row[2];
-					$name = $row[3];
-					$birthdate = $row[4];
-					$phone = $row[6];
-					$mobile = $row[7];
-					$street = $row[8];
-					$city = $row[10];
-					$postal_code = $row[9];
-					$code = $row[12];
-					// Suppression du # dans CID
-					$string = explode('#',$row[11]);
-					$classrooms_id = $string[0];
-					
+			die();
+			// Ouverture du fichier
+		    if($file) 
+		    {
+		        $first = 1;
+		        // Compteur de ligne
+		        $r = 0;
+		        while ($row = fgetcsv($file,1000,";")) 
+		        {
+					// Si premier passage, passe le HEADER fichier csv
+		        	if($first)
+		        	{
+		        		$first = 0;
+		        	}
+		        	else
+		        	{
+			        	// preg_remplace car un caractère invisible est présent, même après un trim
+			        	$email = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[5]);
+						$firstname = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[2]);
+						$name = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[3]);
+						$birthdate = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[4]);
+						$phone = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[6]);
+						$mobile = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[7]);
+						$street = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[8]);
+						$city = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[10]);
+						$postal_code = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[9]);
+						$code = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[12]);
+						// Suppression du # dans CID du CSV.
+						$string = explode('#',$row[11]);
+						$classrooms_id = $string[0];
 
-					
-					// Si la class n'existe pas, en crée une en DB
-					if(!$this->Classroom->find('count',array(
-						'conditions' => array('id'=> $classrooms_id )
-						))){
-
-						$this->Classroom->save(array('id' => $classrooms_id,
-													'code' => $code));
-
-					}
-					// Si email n'existe pas, crée le nouvel user
-					if(!$this->User->find('count',array(
-						'conditions' => array('email'=> $email )
-						))){
-
-						$id_elv = $this->Role->find('first',array(
-							'conditions' => array('role'=> 'Eleve')));
-						$role_id = $id_elv['Role']['id'];
-						//debug($id_eleve['Role']['id']);
-						//die();
-						$this->User->query("INSERT INTO `users`(`email`,`firstname`,`birthdate`,`name`,`phone`,`mobile`,`street`,`city`,`postal_code`,`classrooms_id`) VALUES ('$email','$firstname','$birthdate','$name','$phone','$mobile','$street','$city','$postal_code','$classrooms_id');");
+						// génération d'un mot de passe aléatoire afin de tester la validation du compte.
+						$token = md5(uniqid(rand(),true));
+						$token = substr($token,0,10);
+						$password = Security::hash($token, null,true);
+						//debug($password);
 						
-						// Récupère l'id du dernier USER inséré
-						$id_uti = $this->User->find('first', array(
-							'order' => array('User.id' => 'desc')));
+						// Si la classe n'existe pas, en crée une en DB
+						if(!$this->Classroom->find('count',array(
+							'conditions' => array('id'=> $classrooms_id )
+							))){
 
-						$user_id = $id_uti['User']['id'];
+							$this->Classroom->save(array('id' => $classrooms_id,
+														'code' => $code));
 
-						$this->User->query("INSERT INTO `users_roles`(`user_id`,`role_id`) VALUES ('$user_id','$role_id');");
+						}
 
-						//$this->Role->save(array('id' => ))
-			            //debug($id_user);
-			            //debug($id_user['User']['id']);
-			            //die();
+						// Si email n'existe pas, crée le nouvel user, sinon passe au suivant.
+						if(!$this->User->find('count',array(
+							'conditions' => array('email'=> $email )
+							))){
 
-			            //echo " Ajout de la ligne ";
-			            //echo $r+1;
-			            //echo "<br>";
-					}
-					$r++;
-	        	}
-	    	}
+							$id_elv = $this->Role->find('first',array(
+								'conditions' => array('role'=> 'Eleve')));
+							$role_id = $id_elv['Role']['id'];
+							//debug($id_eleve['Role']['id']);
+							//die();
+							$this->User->query("INSERT INTO `users`(`email`,`password`,`firstname`,`birthdate`,`name`,`phone`,`mobile`,`street`,`city`,`postal_code`,`classrooms_id`) VALUES 
+								('$email','$password','$firstname','$birthdate','$name','$phone','$mobile','$street','$city','$postal_code','$classrooms_id');");
+							
+							// Récupère l'id du dernier USER inséré
+							$id_uti = $this->User->find('first', array(
+								'order' => array('User.id' => 'desc')));
 
-	    }
-	    // close the file
-	    fclose($file);  
-	    die();
+							$user_id = $id_uti['User']['id'];
 
+							$this->User->query("INSERT INTO `users_roles`(`user_id`,`role_id`) VALUES ('$user_id','$role_id');");
+
+							//debug($email);
+								
+							//
+							//
+							//   ENVOI MAIL !!!!!!!
+							//
+							//
+							//	
+							$link = array('controller' =>'users', 'action'=>'activate',
+								$user_id.'-'.md5($password));
+							App::uses('CakeEmail','Network/Email');
+							$cakemail = new CakeEmail('smtp');
+							$cakemail->from('noreply@localhost.com')
+									->to($email)
+									->subject('Test email : inscription')
+									->emailFormat('html')
+									->template('add')
+									->viewvars(array('email' => $email, 'link' => $link))
+									->send('mail de test');	
+							
+							//$this->Role->save(array('id' => ))
+				            //debug($id_user);
+				            //debug($id_user['User']['id']);
+				            //die();
+
+				            //echo " Ajout de la ligne ";
+				            //echo $r+1;
+				            //echo "<br>";
+						}
+						$r++;
+		        	}
+		    	}
+		    }
+		    // close the file
+		    fclose($file);  
+		    //die();
+		}
 	}
-
-
 }

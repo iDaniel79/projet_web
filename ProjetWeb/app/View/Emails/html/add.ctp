@@ -1,5 +1,5 @@
 <p>
-	<strong>Bonjours <?php echo $email; ?></strong>
+	<strong>Bonjour <?php echo $email; ?></strong>
 </p>
 
 <p>
