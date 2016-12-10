@@ -37,12 +37,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </head>
 <body>
 	<div id="container">
-		<div id="header">			
-			<?php if(AuthComponent::user('id')){ ?>
-				<h1><?php echo $this->Html->link( "Se déconnecter",array('action'=> "logout", 'controller'=>'users')); ?></h1>
-			<?php }else{ ?>
-				<h1><?php echo $this->Html->link( "Se connecter",array('action'=> "login", 'controller'=>'users')); ?></h1>				
-			<?php } ?> 
+		<div id="header">
+                    <table>
+                        <tr>
+                            <td style="width: 88%">
+                            <?php if(AuthComponent::user('id')){ ?>
+                                <h1><?php echo 'Connecté en tant que : '.$_SESSION['role'];?></h1>
+                            </td>
+                            <td style="width: 12%">
+                                    <h1><?php echo $this->Html->link( "Se déconnecter",array('action'=> "logout", 'controller'=>'users')); ?></h1>
+
+                            <?php }else{ ?>
+                                    <h1><?php echo $this->Html->link( "Se connecter",array('action'=> "login", 'controller'=>'users')); ?></h1>				
+                            <?php } ?> 
+                            </td>
+                        </tr>
+                    </table>
 		</div>
 		<div id="content">
 
