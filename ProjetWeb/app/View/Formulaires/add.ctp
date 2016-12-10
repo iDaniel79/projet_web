@@ -11,6 +11,7 @@
 		echo $this->Form->input('titre_4');
 		echo $this->Form->input('titre_5');
 		echo $this->Form->input('titre_6');
+                echo $this->Form->input('titre_7');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

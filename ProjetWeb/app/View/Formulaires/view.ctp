@@ -46,6 +46,11 @@
 			<?php echo h($formulaire['Formulaire']['titre_6']); ?>
 			&nbsp;
 		</dd>
+                <dt><?php echo __('Titre 7'); ?></dt>
+                <dd>
+			<?php echo h($formulaire['Formulaire']['titre_7']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
