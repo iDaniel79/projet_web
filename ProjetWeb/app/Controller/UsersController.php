@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-public $uses = array('User','Classroom','Role');
+public $uses = array('User','Classroom','Section','Role');
 /**
  * Components
  *
@@ -85,9 +85,10 @@ public $uses = array('User','Classroom','Role');
 			}
 		}
 		$classrooms = $this->User->Classrooms->find('list');
+                $sections = $this->User->Sections->find('list');
 		$roles = $this->User->Role->find('list');
 		$ufs = $this->User->Uf->find('list');
-		$this->set(compact('classrooms', 'roles', 'ufs'));
+		$this->set(compact('classrooms','sections' ,'roles', 'ufs'));
 	}
 
 /**
@@ -134,9 +135,10 @@ public $uses = array('User','Classroom','Role');
 			$this->request->data = $this->User->find('first', $options);
 		}
 		$classrooms = $this->User->Classrooms->find('list');
-		$roles = $this->User->Role->find('list');
+                $sections = $this->User->Sections->find('list');
+		$roles = $this->User->Role->find('list');               
 		$ufs = $this->User->Uf->find('list');
-		$this->set(compact('classrooms', 'roles', 'ufs'));
+		$this->set(compact('classrooms','sections','roles', 'ufs'));
 		
 	}
 /**
@@ -174,7 +176,7 @@ public $uses = array('User','Classroom','Role');
 			$this->User->id = $user['User']['id'];
 			$this->User->saveField('active',1);
 
-			//$this->Session->setFlash("Votre compte est actif à partir de maintenant");
+			//$this->Session->setFlash("Votre compte est actif Ã  partir de maintenant");
 			$this->Auth->login($user['User']);
 		}
 		else{
@@ -191,7 +193,7 @@ public $uses = array('User','Classroom','Role');
 				{
 					if($this->Auth->login())
 					{	
-						$this->Flash->success(__('Vous etes maintenant connecté'));			
+						$this->Flash->success(__('Vous etes maintenant connectÃ©'));			
 	                                        $data = $this->Auth->user();
 	                                        $_SESSION['email'] = $data['email'];                                       
 	                                        $_SESSION['id_user'] = $data['id'];
@@ -211,14 +213,14 @@ public $uses = array('User','Classroom','Role');
 			}
 	}
 
-	// déconnecter
+	// dÃ©connecter
 	public function logout(){
 		$this->Auth->logout();
 		$this->redirect($this->referer());
 	}
 
-	// password oublié
-// password oublié
+	// password oubliÃ©
+// password oubliÃ©
 	public function password()
 	{
 		if(!empty($this->request->params['named']['token']))
@@ -252,7 +254,7 @@ public $uses = array('User','Classroom','Role');
 				'conditions' => array('email' => $d['email'],'active'=>1)));
 			if(empty($user))
 			{
-				$this->Session->setFlash("Pas d'utilisateur à cette eamil");
+				$this->Session->setFlash("Pas d'utilisateur Ã  cette eamil");
 			}
 			else
 			{
@@ -264,7 +266,7 @@ public $uses = array('User','Classroom','Role');
 				$email = new CakeEmail('smtp');
 				$email->from('noreply@localhost.com')
 						->to($user['User']['email'])
-						->subject('Test email :: mot de passe oublié')
+						->subject('Test email :: mot de passe oubliÃ©')
 						->emailFormat('html')
 						->template('password')
 						->viewvars(array('email' => $user['User']['email'], 'link' => $link))
@@ -293,7 +295,7 @@ public $uses = array('User','Classroom','Role');
 					
 					$this->User->id = $d['id'];
 					$this->User->saveField('password',Security::hash($psw, null,true));
-					$this->Flash->success(__('Vous etes maintenant connecté'));	
+					$this->Flash->success(__('Vous etes maintenant connectÃ©'));	
 				
 					$this->redirect('../users/index');						
 				}
@@ -319,7 +321,7 @@ public $uses = array('User','Classroom','Role');
 		    if(!empty($this->request->data['User']['csv_file']['tmp_name']) && 
 		    	in_array($extension, array('csv'))) 
 		    {
-		    	// On déplace le fichier uploader du dossier tmp vers un dossier qui va contenir un fichier eleves.csv
+		    	// On dÃ©place le fichier uploader du dossier tmp vers un dossier qui va contenir un fichier eleves.csv
 		    	move_uploaded_file($this->request->data['User']['csv_file']['tmp_name'],
 		    		WWW_ROOT . 'csv' . DS . 'eleves' . '.' . $extension);
 
@@ -337,7 +339,7 @@ public $uses = array('User','Classroom','Role');
 		        	}
 		        	else
 		        	{
-			        	// preg_remplace car un caractère invisible est présent, même après un trim
+			        	// preg_remplace car un caractÃ¨re invisible est prÃ©sent, mÃªme aprÃ¨s un trim
 			        	$email = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[5]);
 						$firstname = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[2]);
 						$name = preg_replace('/[\x00-\x1F\x80-\xFF]/', '',$row[3]);
@@ -352,12 +354,12 @@ public $uses = array('User','Classroom','Role');
 						$string = explode('#',$row[11]);
 						$classrooms_id = $string[0];
 
-						// génération d'un mot de passe aléatoire afin de tester la validation du compte.
+						// gÃ©nÃ©ration d'un mot de passe alÃ©atoire afin de tester la validation du compte.
 						$token = md5(uniqid(rand(),true));
 						$token = substr($token,0,10);
 						$password = Security::hash($token, null,true);
 						
-						// Si la classe n'existe pas, en crée une en DB
+						// Si la classe n'existe pas, en crÃ©e une en DB
 						if(!$this->Classroom->find('count',array(
 							'conditions' => array('id'=> $classrooms_id )
 							))){
@@ -367,7 +369,7 @@ public $uses = array('User','Classroom','Role');
 
 						}
 
-						// Si email n'existe pas, crée le nouvel user, sinon passe au suivant.
+						// Si email n'existe pas, crÃ©e le nouvel user, sinon passe au suivant.
 						if(!$this->User->find('count',array(
 							'conditions' => array('email'=> $email )
 							))){
@@ -380,7 +382,7 @@ public $uses = array('User','Classroom','Role');
 							$this->User->query("INSERT INTO `users`(`email`,`password`,`firstname`,`birthdate`,`name`,`phone`,`mobile`,`street`,`city`,`postal_code`,`classrooms_id`) VALUES 
 								('$email','$password','$firstname','$birthdate','$name','$phone','$mobile','$street','$city','$postal_code','$classrooms_id');");
 							
-							// Récupère l'id du dernier USER inséré
+							// RÃ©cupÃ¨re l'id du dernier USER insÃ©rÃ©
 							$id_uti = $this->User->find('first', array(
 								'order' => array('User.id' => 'desc')));
 
@@ -407,7 +409,7 @@ public $uses = array('User','Classroom','Role');
 		    	// Fermeture du fichier
 		    	fclose($file);
 
-		    // Si la requête renvoie bien quelque chose, mais pas un fichier csv, affiche cette erreur	
+		    // Si la requÃªte renvoie bien quelque chose, mais pas un fichier csv, affiche cette erreur	
 		    }else if(!empty($this->request->data['User']['csv_file']['tmp_name']))
 		    {
 		    	$this->Flash->error(__('Vous ne pouvez pas envoyer ce type de fichier'));
@@ -418,7 +420,7 @@ public $uses = array('User','Classroom','Role');
 
 	public function requestativate($id)
 	{
-		// recherche d'un ligne en fonction de l'id demandé et que le champ active soit à 0
+		// recherche d'un ligne en fonction de l'id demandÃ© et que le champ active soit Ã  0
 		$data = $this->User->find('first', array(
 			'conditions' => array('User.id' => $id, 'user.active' => '0')));
 		
@@ -432,7 +434,7 @@ public $uses = array('User','Classroom','Role');
 				->template('add')
 				->viewvars(array('email' => $data['User']['email'], 'link' => $link))
 				->send('mail de test');				
-		$this->Flash->success(__("L'email à bien été envoyé"));
+		$this->Flash->success(__("L'email Ã  bien Ã©tÃ© envoyÃ©"));
 		return $this->redirect(array('action' => 'view/'.$id));
 	}
 

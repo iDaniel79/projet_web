@@ -18,6 +18,7 @@
 		echo $this->Form->input('active');
 		echo $this->Form->input('create');
 		echo $this->Form->input('classrooms_id');
+                echo $this->Form->input('sections_id');
 		echo $this->Form->input('Role');
 		echo $this->Form->input('Uf');
 		echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));						

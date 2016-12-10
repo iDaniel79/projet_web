@@ -15,6 +15,7 @@
 		echo $this->Form->input('postal_code');
 		echo $this->Form->input('country');		
 		echo $this->Form->input('classrooms_id');
+                echo $this->Form->input('sections_id');
 		echo $this->Form->input('Role');
 		echo $this->Form->input('Uf');
 	?>

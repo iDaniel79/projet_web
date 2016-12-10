@@ -56,6 +56,13 @@ class User extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+            	'Sections' => array(
+			'className' => 'Sections',
+			'foreignKey' => 'sections_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 

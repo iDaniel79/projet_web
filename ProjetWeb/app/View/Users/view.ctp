@@ -84,6 +84,11 @@
 			<?php echo $this->Html->link($user['Classrooms']['id'], array('controller' => 'classrooms', 'action' => 'view', $user['Classrooms']['id'])); ?>
 			&nbsp;
 		</dd>
+                <dt><?php echo __('Sections'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($user['Sections']['name'], array('controller' => 'sections', 'action' => 'view', $user['Sections']['id'])); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
