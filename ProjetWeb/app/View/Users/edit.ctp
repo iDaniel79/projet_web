@@ -4,8 +4,7 @@
 		<legend><?php echo __('Edit User'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('email');
-		echo $this->Form->input('password');
+		echo $this->Form->input('email');		
 		echo $this->Form->input('firstname');
 		echo $this->Form->input('name');
 		echo $this->Form->input('birthdate');
@@ -21,8 +20,7 @@
 		echo $this->Form->input('classrooms_id');
 		echo $this->Form->input('Role');
 		echo $this->Form->input('Uf');
-		echo $this->Form->input('password1',array('label' => 'Mdp'));
-		echo $this->Form->input('password2',array('label' => 'Confirmation du mdp'));
+		echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));						
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

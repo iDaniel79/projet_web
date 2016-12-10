@@ -60,11 +60,12 @@ public $uses = array('User','Classroom','Role');
 			$data = $this->request->data;
 
 			$data['User']['id'] = null;
-			if(!empty($data['User']['password'])){
 
-				$data['User']['password'] = Security::hash($data['User']['password'],null,true);
-				$data['User']['active']	 = 0;		
-			}
+			$newpassword = md5(uniqid(rand(),true));
+			$newpassword = substr($newpassword,0,10);
+			$data['User']['password'] = Security::hash($newpassword,null,true);			
+			$data['User']['active']	 = 0;		
+			
 			if($this->User->save($data,true,array('email','password','active'))){
 				$link = array('controller' =>'users', 'action'=>'activate',
 					$this->User->id.'-'.md5($data['User']['password']));
@@ -184,24 +185,28 @@ public $uses = array('User','Classroom','Role');
 
 	public function login(){
 
-			if ($this->request->is('post'));{
-				if($this->Auth->login())
-				{	
-					$this->Flash->success(__('Vous etes maintenant connecté'));			
-                                        $data = $this->Auth->user();
-                                        $_SESSION['email'] = $data['email'];                                       
-                                        $_SESSION['id_user'] = $data['id'];
-                                        $sql = 'select role FROM `roles` LEFT JOIN `users_roles` ON `users_roles`.`role_id` = `roles`.`id` '
-                                                . 'LEFT JOIN `users` ON `users_roles`.`user_id` = `users`.`id` '
-                                                . 'where users.id = "'.$_SESSION['id_user'].'"';
-                                        $roleliste = $this->User->query($sql);
-                                        $_SESSION['role'] = $roleliste[0]['roles']['role'];
-                                        
-                                        $this->redirect('../users/index');
-				}
-				else
-				{					
-					$this->Flash->error(__('Email ou mdp incorrect'));
+			if ($this->request->is('post'));
+			{
+				if(!empty($this->request->data))
+				{
+					if($this->Auth->login())
+					{	
+						$this->Flash->success(__('Vous etes maintenant connecté'));			
+	                                        $data = $this->Auth->user();
+	                                        $_SESSION['email'] = $data['email'];                                       
+	                                        $_SESSION['id_user'] = $data['id'];
+	                                        $sql = 'select role FROM `roles` LEFT JOIN `users_roles` ON `users_roles`.`role_id` = `roles`.`id` '
+	                                                . 'LEFT JOIN `users` ON `users_roles`.`user_id` = `users`.`id` '
+	                                                . 'where users.id = "'.$_SESSION['id_user'].'"';
+	                                        $roleliste = $this->User->query($sql);
+	                                        $_SESSION['role'] = $roleliste[0]['roles']['role'];
+	                                        
+	                                        $this->redirect('../users/index');
+					}
+					else
+					{					
+						$this->Flash->error(__('Email ou mdp incorrect'));
+					}
 				}
 			}
 	}
@@ -414,4 +419,29 @@ public $uses = array('User','Classroom','Role');
 		    //die();
 		}
 	}
+
+	public function requestativate($id)
+	{
+		// recherche d'un ligne en fonction de l'id demandé et que le champ active soit à 0
+		$data = $this->User->find('first', array(
+			'conditions' => array('User.id' => $id, 'user.active' => '0')));
+		
+		$link = array('controller' =>'users', 'action'=>'activate',$id.'-'.md5($data['User']['password']));
+		App::uses('CakeEmail','Network/Email');
+		$email = new CakeEmail('smtp');
+		$email->from('noreply@localhost.com')
+				->to($data['User']['email'])
+				->subject('Test email : inscription')
+				->emailFormat('html')
+				->template('add')
+				->viewvars(array('email' => $data['User']['email'], 'link' => $link))
+				->send('mail de test');				
+		$this->Flash->success(__("L'email à bien été envoyé"));
+		return $this->redirect(array('action' => 'view/'.$id));
+	}
+
+
+
+
+
 }

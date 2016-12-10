@@ -10,12 +10,7 @@
 		<dd>
 			<?php echo h($user['User']['email']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Password'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password']); ?>
-			&nbsp;
-		</dd>
+		</dd>		
 		<dt><?php echo __('Firstname'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['firstname']); ?>
@@ -69,6 +64,14 @@
 		<dt><?php echo __('Active'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['active']); ?>
+			<?php 
+				if(h($user['User']['active']) == 0)
+				{					
+					echo 'Compte pas activé   : ';
+					echo $this->Html->link(__('Demande de réactivation du compte'), array(
+					'controller' => 'users', 'action' => 'requestativate', h($user['User']['id'])));
+				} 
+			?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Create'); ?></dt>
