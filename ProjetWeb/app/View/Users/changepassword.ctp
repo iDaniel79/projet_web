@@ -3,8 +3,8 @@
             <fieldset>
                 <legend><?= __('Changer son mot de passe') ?></legend>
                 <?php
-               		echo $this->Form->input('password1',array('label' => 'Mdp'));
-					echo $this->Form->input('password2',array('label' => 'Confirmation du mdp'));
+               		echo $this->Form->input('password1',array('label' => 'mot de passe', 'type' => 'password'));
+					echo $this->Form->input('password2',array('label' => 'Confirmation du mot de passe', 'type' => 'password'));
 				?>      
             </fieldset>
         <?= $this->Form->button(__('Valider')); ?>
