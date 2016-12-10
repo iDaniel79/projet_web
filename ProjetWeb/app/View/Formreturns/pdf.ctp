@@ -39,7 +39,20 @@ end_last_page div
 }
 -->
 </style>
-
+<?php //Connexion à la DB
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=db_formulaires;charset=utf8', 'root', '');
+        }
+        catch (Exception $e)
+        {
+            die('Erreur : ' . $e->getMessage());
+        }
+        
+        //Récupération du patron formulaire
+        $queryform = $bdd->query("SELECT max(`id`), `version`,`name`,`titre_1`,`titre_2`,`titre_3`,`titre_4`,`titre_5`,`titre_6`,`titre_7` FROM `formulaires` limit 1 ");
+        $titre = $queryform->fetch();
+?>
 
 <div class="formreturns pdf">
  
@@ -57,7 +70,8 @@ end_last_page div
             </th>
             
             <td>
-                Informations de version de documents
+                Version du formulaire : <?php echo $titre['version']; ?> <br>
+                Nom : <?php echo $titre['name']; ?>               
             </td>
             
             
@@ -138,20 +152,11 @@ end_last_page div
         </tr>
     </table>
 <?php					//On récupère les données de la DB
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=db_formulaires;charset=utf8', 'root', '');
-        }
-        catch (Exception $e)
-        {
-            die('Erreur : ' . $e->getMessage());
-        }
 
         //Ecriture de la requete
         //Récupération des formulaires remplis selon l'UF
         //Nous récupérons uniquement la dernière version du formulaire pour le moment
-        $queryform = $bdd->query("SELECT max(`id`), `version`,`name`,`titre_1`,`titre_2`,`titre_3`,`titre_4`,`titre_5`,`titre_6`,`titre_7` FROM `formulaires` limit 1 ");
-        $titre = $queryform->fetch();
+
         
         $queryevaluation = $bdd->query("SELECT round(avg(`evaluation_1`),0) as 'evaluation_1',"
                 . "round(avg(`evaluation_2`),0) as 'evaluation_2',round(avg(`evaluation_3`),0) as 'evaluation_3',"
