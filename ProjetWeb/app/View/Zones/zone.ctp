@@ -9,7 +9,7 @@ try
         }
 
         //Ecriture de la requete
-        $queryreturn = $bdd->query("select * FROM `roles` LEFT JOIN `roles_zones` ON `roles_zones`.`role_id` = `roles`.`id` LEFT JOIN `zones` ON `roles_zones`.`zone_id` = `zones`.`id` where role = '".$_SESSION['role']."'");
+        $queryreturn = $bdd->query("select * FROM `roles` LEFT JOIN `roles_zones` ON `roles_zones`.`role_id` = `roles`.`id` LEFT JOIN `zones` ON `roles_zones`.`zone_id` = `zones`.`id` where role = '".$_SESSION['role']."' ORDER by path");
         
         while ($roles = $queryreturn->fetch())
         {       
