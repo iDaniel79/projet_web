@@ -308,15 +308,23 @@ public $uses = array('User','Classroom','Role');
 	public function import()
 	{
 
-		//$file = fopen('C:\wamp64\www\projet_web\CSV\test.csv', 'r');
-		if ($this->request->is('post')) 
+		// On test si on recoit bien quelque chose 
+		if (!empty($this->request->data)) 
 		{
-			debug($this->request->data);
 
-			die();
-			// Ouverture du fichier
-		    if($file) 
+			$extension = strtolower(pathinfo($this->request->data['User']['csv_file']['name'] , PATHINFO_EXTENSION));
+
+
+			// On test si c'est bien une extension .csv 
+		    if(!empty($this->request->data['User']['csv_file']['tmp_name']) && 
+		    	in_array($extension, array('csv'))) 
 		    {
+		    	// On déplace le fichier uploader du dossier tmp vers un dossier qui va contenir un fichier eleves.csv
+		    	move_uploaded_file($this->request->data['User']['csv_file']['tmp_name'],
+		    		WWW_ROOT . 'csv' . DS . 'eleves' . '.' . $extension);
+
+		    	// Ouverture du fichier .csv
+		    	$file = fopen(WWW_ROOT . 'csv' . DS . 'eleves.csv', 'r');
 		        $first = 1;
 		        // Compteur de ligne
 		        $r = 0;
@@ -348,7 +356,6 @@ public $uses = array('User','Classroom','Role');
 						$token = md5(uniqid(rand(),true));
 						$token = substr($token,0,10);
 						$password = Security::hash($token, null,true);
-						//debug($password);
 						
 						// Si la classe n'existe pas, en crée une en DB
 						if(!$this->Classroom->find('count',array(
@@ -380,15 +387,7 @@ public $uses = array('User','Classroom','Role');
 							$user_id = $id_uti['User']['id'];
 
 							$this->User->query("INSERT INTO `users_roles`(`user_id`,`role_id`) VALUES ('$user_id','$role_id');");
-
-							//debug($email);
-								
-							//
-							//
-							//   ENVOI MAIL !!!!!!!
-							//
-							//
-							//	
+	
 							$link = array('controller' =>'users', 'action'=>'activate',
 								$user_id.'-'.md5($password));
 							App::uses('CakeEmail','Network/Email');
@@ -401,22 +400,19 @@ public $uses = array('User','Classroom','Role');
 									->viewvars(array('email' => $email, 'link' => $link))
 									->send('mail de test');	
 							
-							//$this->Role->save(array('id' => ))
-				            //debug($id_user);
-				            //debug($id_user['User']['id']);
-				            //die();
-
-				            //echo " Ajout de la ligne ";
-				            //echo $r+1;
-				            //echo "<br>";
 						}
 						$r++;
 		        	}
 		    	}
+		    	// Fermeture du fichier
+		    	fclose($file);
+
+		    // Si la requête renvoie bien quelque chose, mais pas un fichier csv, affiche cette erreur	
+		    }else if(!empty($this->request->data['User']['csv_file']['tmp_name']))
+		    {
+		    	$this->Flash->error(__('Vous ne pouvez pas envoyer ce type de fichier'));
 		    }
-		    // close the file
-		    fclose($file);  
-		    //die();
+
 		}
 	}
 
