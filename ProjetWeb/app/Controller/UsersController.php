@@ -20,7 +20,7 @@ public $uses = array('User','Classroom','Role');
 
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add','logout','activate','password');
+        $this->Auth->allow('logout','activate','password');
     }
 
 /**

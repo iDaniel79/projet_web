@@ -21,25 +21,28 @@
     ?>
     <tbody>
        <dl>
-            <dt>
-            <form method="GET" action ="/projet_web/ProjetWeb/formreturns/pdf">
+            
+            <fieldset>
+                <legend><?= __("Sélectionner l'UF pour le rapport d'évaluation") ?></legend>
+                <form method="GET" action ="/projet_web/ProjetWeb/formreturns/pdf">
 
-                    UF Concernée : 
+                        UF Concernée : 
 
-                            <select name="fUF"/>
-                            <?php
-                             while ($donnees = $query_uf->fetch()){
-                                echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>' ;
-                             }      
-                            ?>
-                            </select>
+                                <select name="fUF"/>
+                                <?php
+                                 while ($donnees = $query_uf->fetch()){
+                                    echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>' ;
+                                 }      
+                                ?>
+                                </select>
 
-                    </br>
-                    </br>
-                    <input type="submit" value ="Consulter le rapport" />
+                        </br>
+                        </br>
+                        <input type="submit" value ="Consulter le rapport" />
 
-             </form>
-            </dt>       
+                </form>
+            </fieldset>
+                  
         </dl>
     </tbody>
 </div>

@@ -21,12 +21,13 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Editer zone'), array('action' => 'edit', $zone['Zone']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Supprimer zone'), array('action' => 'delete', $zone['Zone']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $zone['Zone']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('Liste zones'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nouvelle zone'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Liste rôles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nouveau rôle'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Editer zone'), array('action' => 'edit', $zone['Zone']['id'])); ?> </li>
+		<li><?php //echo $this->Form->postLink(__('Supprimer zone'), array('action' => 'delete', $zone['Zone']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $zone['Zone']['id']))); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste zones'), array('action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouvelle zone'), array('action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste rôles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau rôle'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>
 <div class="related">
@@ -55,7 +56,7 @@
 	<div class="actions">
 		<ul>
 			<li><?php //echo $this->Html->link(__('Nouveau rôle'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
-                        <?php include('/../Zones/zone.ctp')?>
+                        
 		</ul>
 	</div>
 </div>

@@ -16,14 +16,15 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Editer rôle'), array('action' => 'edit', $role['Role']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Supprimer rôle'), array('action' => 'delete', $role['Role']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $role['Role']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('Liste rôles'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nouveau rôle'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Liste zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nouvelle zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Liste utilisateurs'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nouvel utilisateur'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Editer rôle'), array('action' => 'edit', $role['Role']['id'])); ?> </li>
+		<li><?php //echo $this->Form->postLink(__('Supprimer rôle'), array('action' => 'delete', $role['Role']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $role['Role']['id']))); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste rôles'), array('action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau rôle'), array('action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouvelle zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste utilisateurs'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouvel utilisateur'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+                <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>
 <div class="related">
@@ -106,8 +107,8 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php //echo $this->Html->link(__('Nouvel utilisateur'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-                        <?php include('/../Zones/zone.ctp')?>
+			<li><?php echo $this->Html->link(__('Nouvel utilisateur'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+                        
 		</ul>
 	</div>
 </div>
