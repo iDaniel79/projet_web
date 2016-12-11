@@ -200,7 +200,7 @@ public $uses = array('User','Classroom','Role');
 	                                        $roleliste = $this->User->query($sql);
 	                                        $_SESSION['role'] = $roleliste[0]['roles']['role'];
 	                                        
-	                                        $this->redirect('../users/index');
+	                                        $this->redirect('../');
 					}
 					else
 					{					
