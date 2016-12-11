@@ -11,6 +11,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                            'value'=>3,
                         'type' => 'radio'
                     ));
 		echo $this->Form->input('commentaire_2');
@@ -20,6 +21,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                        'value'=>3,
                         'type' => 'radio'
                     ));
 		echo $this->Form->input('commentaire_3');
@@ -29,6 +31,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                            'value'=>3,
                         'type' => 'radio'
                     ));                
 		echo $this->Form->input('commentaire_4');
@@ -38,6 +41,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                            'value'=>3,
                         'type' => 'radio'
                     ));
 		echo $this->Form->input('commentaire_5');
@@ -47,6 +51,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                            'value'=>3,
                         'type' => 'radio'
                     ));
 		echo $this->Form->input('commentaire_6');
@@ -56,6 +61,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                            'value'=>3,
                         'type' => 'radio'
                     ));
 		echo $this->Form->input('commentaire_7');
@@ -65,6 +71,7 @@
                             3=>'Je suis satisfait, ni plus, ni moins.',
                             4=>'Mes attentes sont amplement rencontrées.',
                             5=>'Excellent, je suis très satisfait.'),
+                            'value'=>3,
                         'type' => 'radio'
                     ));
 		echo $this->Form->input('ufs_id');
