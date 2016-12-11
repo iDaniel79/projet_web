@@ -351,6 +351,7 @@ public $uses = array('User','Classroom','Role');
 						// Suppression du # dans CID du CSV.
 						$string = explode('#',$row[11]);
 						$classrooms_id = $string[0];
+						$create = date("Y-m-d H:i:s");
 
 						// génération d'un mot de passe aléatoire afin de tester la validation du compte.
 						$token = md5(uniqid(rand(),true));
@@ -377,8 +378,9 @@ public $uses = array('User','Classroom','Role');
 							$role_id = $id_elv['Role']['id'];
 							//debug($id_eleve['Role']['id']);
 							//die();
-							$this->User->query("INSERT INTO `users`(`email`,`password`,`firstname`,`birthdate`,`name`,`phone`,`mobile`,`street`,`city`,`postal_code`,`classrooms_id`) VALUES 
-								('$email','$password','$firstname','$birthdate','$name','$phone','$mobile','$street','$city','$postal_code','$classrooms_id');");
+							$this->User->query("INSERT INTO `users`(`email`,`password`,`firstname`,`birthdate`,`name`,`phone`,`mobile`,`street`,`city`,`postal_code`,`classrooms_id`
+								,`create`) VALUES 
+								('$email','$password','$firstname','$birthdate','$name','$phone','$mobile','$street','$city','$postal_code','$classrooms_id','$create');");
 							
 							// Récupère l'id du dernier USER inséré
 							$id_uti = $this->User->find('first', array(

@@ -21,7 +21,7 @@
 </head>
 <body>
 	<?php echo $this->fetch('content'); ?>
-
-	<p>Site l'<a href="http://www.promsoc-arlon.be/new/index.php">IEPS ARLON.</a></p>
+	</br>
+	<p><a href="http://www.web.promsoc-sud-luxembourg.be/index.php/contact">Contact IEPS</a></p>
 </body>
 </html>
