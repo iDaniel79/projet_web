@@ -3,23 +3,23 @@
 	<fieldset>
 		<legend><?php echo __('Editer un utilisateur'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('email');		
-		echo $this->Form->input('firstname');
-		echo $this->Form->input('name');
-		echo $this->Form->input('birthdate');
-		echo $this->Form->input('phone');
-		echo $this->Form->input('mobile');
-		echo $this->Form->input('street');
-		echo $this->Form->input('number');
-		echo $this->Form->input('city');
-		echo $this->Form->input('postal_code');
-		echo $this->Form->input('country');
-		echo $this->Form->input('active');
-		echo $this->Form->input('create');
-		echo $this->Form->input('classrooms_id');
-		echo $this->Form->input('Role');
-		echo $this->Form->input('Uf');
+		echo $this->Form->input('id',array('label' => 'ID'));
+		echo $this->Form->input('email',array('label' => 'Email'));		
+		echo $this->Form->input('firstname',array('label' => 'Prénom'));
+		echo $this->Form->input('name',array('label' => 'Nom'));
+		echo $this->Form->input('birthdate',array('label' => 'Date de naissance'));
+		echo $this->Form->input('phone',array('label' => 'Téléphone'));
+		echo $this->Form->input('mobile',array('label' => 'GSM'));
+		echo $this->Form->input('street',array('label' => 'Rue'));
+		echo $this->Form->input('number',array('label' => 'Numéro'));
+		echo $this->Form->input('city',array('label' => 'Ville'));
+		echo $this->Form->input('postal_code',array('label' => 'Code postal'));
+		echo $this->Form->input('country',array('label' => 'Pays'));
+		echo $this->Form->input('active',array('label' => 'Actif'));
+		echo $this->Form->input('create',array('label' => 'Date de création'));
+		echo $this->Form->input('classrooms_id',array('label' => 'Classe'));
+		echo $this->Form->input('Role',array('label' => 'Rôle'));
+		echo $this->Form->input('Uf',array('label' => 'Unités de formation'));
 		echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));						
 	?>
 	</fieldset>

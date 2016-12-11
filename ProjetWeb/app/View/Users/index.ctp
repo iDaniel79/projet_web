@@ -4,11 +4,11 @@
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('email'); ?></th>			
-			<th><?php echo $this->Paginator->sort('firstname'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>			
-			<th><?php echo $this->Paginator->sort('validate'); ?></th>
-			<th><?php echo $this->Paginator->sort('create'); ?></th>			
+			<th><?php echo $this->Paginator->sort('Email'); ?></th>			
+			<th><?php echo $this->Paginator->sort('Prénom'); ?></th>
+			<th><?php echo $this->Paginator->sort('Nom'); ?></th>			
+			<th><?php echo $this->Paginator->sort('Validé'); ?></th>
+			<th><?php echo $this->Paginator->sort('Date de création'); ?></th>			
 	</tr>
 	</thead>
 	<tbody>

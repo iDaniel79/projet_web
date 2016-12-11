@@ -11,57 +11,57 @@
 			<?php echo h($user['User']['email']); ?>
 			&nbsp;
 		</dd>		
-		<dt><?php echo __('Firstname'); ?></dt>
+		<dt><?php echo __('Prénom'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['firstname']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt><?php echo __('Nom'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Birthdate'); ?></dt>
+		<dt><?php echo __('Date de naissance'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['birthdate']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Phone'); ?></dt>
+		<dt><?php echo __('Téléphone'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['phone']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Mobile'); ?></dt>
+		<dt><?php echo __('GSM'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['mobile']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Street'); ?></dt>
+		<dt><?php echo __('Rue'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['street']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Number'); ?></dt>
+		<dt><?php echo __('Numéro'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['number']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('City'); ?></dt>
+		<dt><?php echo __('Ville'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['city']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Postal Code'); ?></dt>
+		<dt><?php echo __('Code postal'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['postal_code']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Country'); ?></dt>
+		<dt><?php echo __('Pays'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['country']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Active'); ?></dt>
+		<dt><?php echo __('Actif'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['active']); ?>
 			<?php 
@@ -74,12 +74,12 @@
 			?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Create'); ?></dt>
+		<dt><?php echo __('Date de création'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['create']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Classrooms'); ?></dt>
+		<dt><?php echo __('Classe'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($user['Classrooms']['id'], array('controller' => 'classrooms', 'action' => 'view', $user['Classrooms']['id'])); ?>
 			&nbsp;
