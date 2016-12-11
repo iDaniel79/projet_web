@@ -1,5 +1,5 @@
 <div class="formreturns index">
-	<h2><?php echo __('Formreturns'); ?></h2>
+	<h2><?php echo __('Formulaires de retour'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -46,9 +46,9 @@
 			<?php echo $this->Html->link($formreturn['Ufs']['name'], array('controller' => 'ufs', 'action' => 'view', $formreturn['Ufs']['id'])); ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $formreturn['Formreturn']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $formreturn['Formreturn']['id']))); ?>
+			<?php echo $this->Html->link(__('Consulter'), array('action' => 'view', $formreturn['Formreturn']['id'])); ?>
+			<?php echo $this->Html->link(__('Editer'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Supprimer'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $formreturn['Formreturn']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -57,23 +57,23 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		'format' => __("Page {:page} sur {:pages}, montre {:current} enregristrements sur un total de {:count}, démarre sur l'enregistrement {:start}, termine sur l'enregistrement {:end}")
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('précédent'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('suivant') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php //echo $this->Html->link(__('New Formreturn'), array('action' => 'add')); ?></li>
-		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php //echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau formulaire de retour'), array('action' => 'add')); ?></li>
+		<li><?php //echo $this->Html->link(__('Liste Uf'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouvelle Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
                 <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

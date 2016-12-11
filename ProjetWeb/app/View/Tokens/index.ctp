@@ -24,9 +24,9 @@
 			<?php echo $this->Html->link($token['Ufs']['name'], array('controller' => 'ufs', 'action' => 'view', $token['Ufs']['id'])); ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $token['Token']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $token['Token']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $token['Token']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $token['Token']['id']))); ?>
+			<?php echo $this->Html->link(__('Consulter'), array('action' => 'view', $token['Token']['id'])); ?>
+			<?php echo $this->Html->link(__('Editer'), array('action' => 'edit', $token['Token']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Supprimer'), array('action' => 'delete', $token['Token']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $token['Token']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -35,22 +35,22 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		'format' => __("Page {:page} sur {:pages}, montre {:current} enregristrements sur un total de {:count}, démarre sur l'enregistrement {:start}, termine sur l'enregistrement {:end}")
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('précédent'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('suivant') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Token'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nouveau token'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Liste Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nouvelle Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

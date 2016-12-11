@@ -1,12 +1,12 @@
 <div class="roles view">
-<h2><?php echo __('Role'); ?></h2>
+<h2><?php echo __('Rôle'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($role['Role']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Role'); ?></dt>
+		<dt><?php echo __('Rôle'); ?></dt>
 		<dd>
 			<?php echo h($role['Role']['role']); ?>
 			&nbsp;
@@ -16,18 +16,18 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Role'), array('action' => 'edit', $role['Role']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Role'), array('action' => 'delete', $role['Role']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $role['Role']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Roles'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Editer rôle'), array('action' => 'edit', $role['Role']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Supprimer rôle'), array('action' => 'delete', $role['Role']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $role['Role']['id']))); ?> </li>
+		<li><?php echo $this->Html->link(__('Liste rôles'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nouveau rôle'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Liste zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nouvelle zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Liste utilisateurs'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nouvel utilisateur'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Zones'); ?></h3>
+	<h3><?php echo __('Liaison des zones'); ?></h3>
 	<?php if (!empty($role['Zone'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -40,9 +40,9 @@
 			<td><?php echo $zone['id']; ?></td>
 			<td><?php echo $zone['name']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'zones', 'action' => 'view', $zone['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'zones', 'action' => 'edit', $zone['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'zones', 'action' => 'delete', $zone['id']), array('confirm' => __('Are you sure you want to delete # %s?', $zone['id']))); ?>
+				<?php echo $this->Html->link(__('Consulter'), array('controller' => 'zones', 'action' => 'view', $zone['id'])); ?>
+				<?php echo $this->Html->link(__('Editer'), array('controller' => 'zones', 'action' => 'edit', $zone['id'])); ?>
+				<?php echo $this->Form->postLink(__('Supprimer'), array('controller' => 'zones', 'action' => 'delete', $zone['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $zone['id']))); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -51,12 +51,12 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Nouvelle zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Users'); ?></h3>
+	<h3><?php echo __('Liaison des utilisateurs'); ?></h3>
 	<?php if (!empty($role['User'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -95,9 +95,9 @@
 			<td><?php echo $user['validate']; ?></td>
 			<td><?php echo $user['create']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'users', 'action' => 'view', $user['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'users', 'action' => 'edit', $user['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user['id']))); ?>
+				<?php echo $this->Html->link(__('Consulter'), array('controller' => 'users', 'action' => 'view', $user['id'])); ?>
+				<?php echo $this->Html->link(__('Editer'), array('controller' => 'users', 'action' => 'edit', $user['id'])); ?>
+				<?php echo $this->Form->postLink(__('Supprimer'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $user['id']))); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -106,7 +106,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php //echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+			<li><?php //echo $this->Html->link(__('Nouvel utilisateur'), array('controller' => 'users', 'action' => 'add')); ?> </li>
                         <?php include('/../Zones/zone.ctp')?>
 		</ul>
 	</div>

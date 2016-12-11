@@ -3,7 +3,7 @@
 </p>
 
 <p>
-	Pour activer ce compte suivez le lien : 
+	Pour activer votre compte, suivez ce lien : 
 </p>
 
 <p>

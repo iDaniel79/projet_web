@@ -2,7 +2,7 @@
 		<?= $this->Form->create('User') ?>
 		    <fieldset>
 		        <legend><?= __('Mot de passe oublié'); ?></legend>
-		        <?= $this->Form->input('email',array('label'=> 'Votre email de connexion')); ?>		       
+		        <?= $this->Form->input('email',array('label'=> 'Votre e-mail de connexion')); ?>		       
 		    </fieldset>
 		<?= $this->Form->button(__('Envoyer')); ?> 
 		</br>

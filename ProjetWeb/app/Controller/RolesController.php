@@ -36,7 +36,7 @@ class RolesController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Role->exists($id)) {
-			throw new NotFoundException(__('Invalid role'));
+			throw new NotFoundException(__('Role invalide'));
 		}
 		$options = array('conditions' => array('Role.' . $this->Role->primaryKey => $id));
 		$this->set('role', $this->Role->find('first', $options));
@@ -51,10 +51,10 @@ class RolesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Role->create();
 			if ($this->Role->save($this->request->data)) {
-				$this->Flash->success(__('The role has been saved.'));
+				$this->Flash->success(__('Le role a été sauvé.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The role could not be saved. Please, try again.'));
+				$this->Flash->error(__("Le role n'a pas été sauvé."));
 			}
 		}
 		$zones = $this->Role->Zone->find('list');
@@ -71,14 +71,14 @@ class RolesController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Role->exists($id)) {
-			throw new NotFoundException(__('Invalid role'));
+			throw new NotFoundException(__('Role invalide'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Role->save($this->request->data)) {
-				$this->Flash->success(__('The role has been saved.'));
+				$this->Flash->success(__('Le role a été sauvé.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The role could not be saved. Please, try again.'));
+				$this->Flash->error(__("Le role n'a pas été sauvé."));
 			}
 		} else {
 			$options = array('conditions' => array('Role.' . $this->Role->primaryKey => $id));
@@ -99,13 +99,13 @@ class RolesController extends AppController {
 	public function delete($id = null) {
 		$this->Role->id = $id;
 		if (!$this->Role->exists()) {
-			throw new NotFoundException(__('Invalid role'));
+			throw new NotFoundException(__('Role invalide'));
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Role->delete()) {
-			$this->Flash->success(__('The role has been deleted.'));
+			$this->Flash->success(__('Le role a été supprimé.'));
 		} else {
-			$this->Flash->error(__('The role could not be deleted. Please, try again.'));
+			$this->Flash->error(__("Le role n'a pas été supprimé."));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

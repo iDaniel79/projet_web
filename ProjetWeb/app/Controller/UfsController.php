@@ -36,7 +36,7 @@ class UfsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Uf->exists($id)) {
-			throw new NotFoundException(__('Invalid uf'));
+			throw new NotFoundException(__("Uf invalide"));
 		}
 		$options = array('conditions' => array('Uf.' . $this->Uf->primaryKey => $id));
 		$this->set('uf', $this->Uf->find('first', $options));
@@ -51,10 +51,10 @@ class UfsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Uf->create();
 			if ($this->Uf->save($this->request->data)) {
-				$this->Flash->success(__('The uf has been saved.'));
+				$this->Flash->success(__("L'uf a été sauvé."));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The uf could not be saved. Please, try again.'));
+				$this->Flash->error(__("L'uf n'a pas été sauvé."));
 			}
 		}
 		$users = $this->Uf->User->find('list');
@@ -70,14 +70,14 @@ class UfsController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Uf->exists($id)) {
-			throw new NotFoundException(__('Invalid uf'));
+			throw new NotFoundException(__("Uf invalide"));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Uf->save($this->request->data)) {
-				$this->Flash->success(__('The uf has been saved.'));
+				$this->Flash->success(__("L'uf a été sauvé."));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The uf could not be saved. Please, try again.'));
+				$this->Flash->error(__("L'uf n'a pas été sauvé."));
 			}
 		} else {
 			$options = array('conditions' => array('Uf.' . $this->Uf->primaryKey => $id));
@@ -97,13 +97,13 @@ class UfsController extends AppController {
 	public function delete($id = null) {
 		$this->Uf->id = $id;
 		if (!$this->Uf->exists()) {
-			throw new NotFoundException(__('Invalid uf'));
+			throw new NotFoundException(__("Uf invalide"));
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Uf->delete()) {
-			$this->Flash->success(__('The uf has been deleted.'));
+			$this->Flash->success(__("L'uf a été supprimé."));
 		} else {
-			$this->Flash->error(__('The uf could not be deleted. Please, try again.'));
+			$this->Flash->error(__("L'uf n'a pas été supprimé."));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

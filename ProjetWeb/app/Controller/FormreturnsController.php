@@ -37,7 +37,7 @@ class FormreturnsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Formreturn->exists($id)) {
-			throw new NotFoundException(__('Invalid formreturn'));
+			throw new NotFoundException(__('Formulaire de retour invalide.'));
 		}
 		$options = array('conditions' => array('Formreturn.' . $this->Formreturn->primaryKey => $id));
 		$this->set('formreturn', $this->Formreturn->find('first', $options));
@@ -52,10 +52,10 @@ class FormreturnsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Formreturn->create();
 			if ($this->Formreturn->save($this->request->data)) {
-				$this->Flash->success(__('The formreturn has been saved.'));
+				$this->Flash->success(__('Formulaire de retour a été sauvé.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The formreturn could not be saved. Please, try again.'));
+				$this->Flash->error(__("Formulaire de retour n'a pas été sauvé."));
 			}
 		}
 		$ufs = $this->Formreturn->Ufs->find('list');
@@ -71,14 +71,14 @@ class FormreturnsController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Formreturn->exists($id)) {
-			throw new NotFoundException(__('Invalid formreturn'));
+			throw new NotFoundException(__('Formulaire de retour invalide.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Formreturn->save($this->request->data)) {
-				$this->Flash->success(__('The formreturn has been saved.'));
+				$this->Flash->success(__('Formulaire de retour a été sauvé.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The formreturn could not be saved. Please, try again.'));
+				$this->Flash->error(__("Formulaire de retour n'a pas été sauvé."));
 			}
 		} else {
 			$options = array('conditions' => array('Formreturn.' . $this->Formreturn->primaryKey => $id));
@@ -98,13 +98,13 @@ class FormreturnsController extends AppController {
 	public function delete($id = null) {
 		$this->Formreturn->id = $id;
 		if (!$this->Formreturn->exists()) {
-			throw new NotFoundException(__('Invalid formreturn'));
+			throw new NotFoundException(__('Formulaire de retour invalide.'));
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Formreturn->delete()) {
-			$this->Flash->success(__('The formreturn has been deleted.'));
+			$this->Flash->success(__('Formulaire de retour a été supprimé.'));
 		} else {
-			$this->Flash->error(__('The formreturn could not be deleted. Please, try again.'));
+			$this->Flash->error(__("Formulaire de retour n'a pas été supprimé."));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
