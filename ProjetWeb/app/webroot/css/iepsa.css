@@ -1,0 +1,148 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26-nov.-2016, 17:47:19
+    Author     : Rézette
+*/
+#general {
+	width:1200px;
+	height:800px;
+	background-color:#8c0c19;
+	margin:auto;
+}
+
+#banniere{
+    padding: 10px 20px;
+	/*width:1200px;*/
+	height:120px;
+	background-color:#F5F5F5;
+	color: #000000;
+	font-family:"Helvetica";
+	font-size: 100%;
+
+/*	margin:auto;*/
+}
+
+#centre{
+	width:1198px;
+	height:628px;
+	background-color:#F5F5F5;
+	font-family:"Helvetica";
+	margin:1px;
+}
+
+#menu{
+	width:198px;
+	height:626px;
+	background:#656565;
+        background:linear-gradient(bottom, #F5F5F5, #656565);
+        background:-ms-linear-gradient(bottom, #F5F5F5, #656565);
+        background:-moz-linear-gradient(bottom, #F5F5F5, #656565);
+        background:-webkit-linear-gradient(bottom, #F5F5F5, #656565);
+        background:-o-linear-gradient(bottom, #F5F5F5, #656565);
+	color: #FFF;
+	font-family:"Helvetica";
+        font-weight: bold;
+        margin:1px;
+        text-align:justify;
+        float:left;
+}
+
+#affichage{
+	width:996px;
+	height:626px; 
+	background-color:#F5F5F5;
+	color: #000;
+	text-align: center;
+	font-family:"Helvetica";
+	margin:1px;
+	float: right;
+}
+
+#pieddepage{
+	width: 100%;
+    /*padding-left: 20px;
+    padding-right: 20px;*/
+	height:50px;
+	background-color:#F5F5F5;
+	color: #000;
+	font-family:"Helvetica";
+	margin:auto;
+    position: fixed;
+    bottom: 0;
+	
+}
+
+
+.gauche{
+        float: left;
+        margin-top: 17px;
+}
+
+.droite{
+        float: right;
+        vertical-align: top;        
+}
+
+.titre1{
+        color: #000;
+        text-transform: uppercase;
+	font-family:"Helvetica";
+        text-align:left;
+        font-size: 150%;
+}
+
+.layoutbouton{
+        color: #000;
+        font-family:"Helvetica";
+        text-align:center;
+        font-weight: bold;
+        font-size: 100%;
+        background:#656565;
+        background:linear-gradient(bottom, #F5F5F5, #656565);
+        background:-ms-linear-gradient(bottom, #F5F5F5, #656565);
+        background:-moz-linear-gradient(bottom, #F5F5F5, #656565);
+        background:-webkit-linear-gradient(bottom, #F5F5F5, #656565);
+        background:-o-linear-gradient(bottom, #F5F5F5, #656565);
+}
+
+.layouttexte{
+        color: #656565;
+        font-family:"Helvetica";
+        text-align:center;
+        font-size: 150%;
+}
+
+.layoutform{
+        color: #FFF;
+        font-weight: bold;
+	font-family:"Helvetica";
+        text-align:center;
+        background-color: #8c0c19;
+        background:#8c0c19;
+        background:linear-gradient(bottom, #d8283a, #8c0c19);
+        background:-ms-linear-gradient(bottom, #d8283a, #8c0c19);
+        background:-moz-linear-gradient(bottom, #d8283a, #8c0c19);
+        background:-webkit-linear-gradient(bottom, #d8283a, #8c0c19);
+        background:-o-linear-gradient(bottom, #d8283a, #8c0c19);
+        margin : 20px;
+        
+        
+}
+
+.label{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+
+
+
+
+
+
+

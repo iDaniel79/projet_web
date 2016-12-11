@@ -1,7 +1,7 @@
 <div class="users form">
 	<fieldset>
 		<legend><?php echo __("Page d'accueil"); ?></legend>
-		<h1>Bienvenue sur la nouvelle plateforme</h1>
+		<p>Bienvenue sur la nouvelle plateforme</p>
 	</fieldset>		
 </div>
 <div class="actions">

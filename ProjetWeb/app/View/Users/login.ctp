@@ -9,3 +9,11 @@
         <?php echo $this->Form->end(__('Se connecter')); ?>
         <?= $this->html->link("Mot de passe oublié ?", array('action'=>'password','controller'=>'users')); ?>        
 </div>
+
+<div class="actions">
+	<ul>			
+		<li><?php echo $this->Html->link(__('Nous contacter'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>	               
+	</ul>
+
+</div>
+
