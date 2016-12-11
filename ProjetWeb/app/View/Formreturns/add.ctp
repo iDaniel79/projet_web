@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __("Ajouter un formulaire de retour"); ?></legend>
 	<?php
-		echo $this->Form->input('create');
+		echo $this->Form->input('create',array('label' => 'Date de création'));
 		echo $this->Form->input('commentaire_1');
 		echo $this->Form->input('evaluation_1');
 		echo $this->Form->input('commentaire_2');

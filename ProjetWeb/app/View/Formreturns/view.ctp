@@ -6,7 +6,7 @@
 			<?php echo h($formreturn['Formreturn']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Create'); ?></dt>
+		<dt><?php echo __('Date de creation'); ?></dt>
 		<dd>
 			<?php echo h($formreturn['Formreturn']['create']); ?>
 			&nbsp;

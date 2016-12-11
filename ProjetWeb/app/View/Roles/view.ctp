@@ -33,7 +33,7 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Nom'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($role['Zone'] as $zone): ?>
@@ -63,26 +63,24 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Email'); ?></th>
-		<th><?php echo __('Password'); ?></th>
-		<th><?php echo __('Firstname'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Birthdate'); ?></th>
-		<th><?php echo __('Phone'); ?></th>
-		<th><?php echo __('Mobile'); ?></th>
-		<th><?php echo __('Street'); ?></th>
-		<th><?php echo __('Number'); ?></th>
-		<th><?php echo __('City'); ?></th>
-		<th><?php echo __('Postal Code'); ?></th>
-		<th><?php echo __('Country'); ?></th>
-		<th><?php echo __('Validate'); ?></th>
-		<th><?php echo __('Create'); ?></th>
+		<th><?php echo __('Prénom'); ?></th>
+		<th><?php echo __('Nom'); ?></th>
+		<th><?php echo __('Date de naissance'); ?></th>
+		<th><?php echo __('Téléphone'); ?></th>
+		<th><?php echo __('GSM'); ?></th>
+		<th><?php echo __('Rue'); ?></th>
+		<th><?php echo __('Numéro'); ?></th>
+		<th><?php echo __('Ville'); ?></th>
+		<th><?php echo __('Code Postal'); ?></th>
+		<th><?php echo __('Pays'); ?></th>
+		<th><?php echo __('Actif'); ?></th>
+		<th><?php echo __('Date de création'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($role['User'] as $user): ?>
 		<tr>
 			<td><?php echo $user['id']; ?></td>
 			<td><?php echo $user['email']; ?></td>
-			<td><?php echo $user['password']; ?></td>
 			<td><?php echo $user['firstname']; ?></td>
 			<td><?php echo $user['name']; ?></td>
 			<td><?php echo $user['birthdate']; ?></td>
@@ -93,7 +91,7 @@
 			<td><?php echo $user['city']; ?></td>
 			<td><?php echo $user['postal_code']; ?></td>
 			<td><?php echo $user['country']; ?></td>
-			<td><?php echo $user['validate']; ?></td>
+			<td><?php echo $user['active']; ?></td>
 			<td><?php echo $user['create']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Consulter'), array('controller' => 'users', 'action' => 'view', $user['id'])); ?>

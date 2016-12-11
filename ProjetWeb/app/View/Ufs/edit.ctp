@@ -3,10 +3,10 @@
 	<fieldset>
 		<legend><?php echo __('Editer Uf'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('code');
-		echo $this->Form->input('User');
+		echo $this->Form->input('id',array('label' => 'Id'));
+		echo $this->Form->input('name',array('label' => 'Nom'));
+		echo $this->Form->input('code',array('label' => 'Code'));
+		echo $this->Form->input('User',array('label' => 'Utilisateurs'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>

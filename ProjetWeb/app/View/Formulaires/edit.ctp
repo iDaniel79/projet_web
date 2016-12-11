@@ -3,9 +3,9 @@
 	<fieldset>
 		<legend><?php echo __('Editer un formulaire'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('version');
-		echo $this->Form->input('name');
+		echo $this->Form->input('id',array('label' => 'Id'));
+		echo $this->Form->input('version',array('label' => 'Version'));
+		echo $this->Form->input('name',array('label' => 'Nom'));
 		echo $this->Form->input('titre_1');
 		echo $this->Form->input('titre_2');
 		echo $this->Form->input('titre_3');

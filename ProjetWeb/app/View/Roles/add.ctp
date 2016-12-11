@@ -3,9 +3,9 @@
 	<fieldset>
 		<legend><?php echo __('Ajouter un role'); ?></legend>
 	<?php
-		echo $this->Form->input('role');
+		echo $this->Form->input('role',array('label' => 'Rôle'));
 		echo $this->Form->input('Zone');
-		echo $this->Form->input('User');
+		echo $this->Form->input('User',array('label' => 'Utilisateurs'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>

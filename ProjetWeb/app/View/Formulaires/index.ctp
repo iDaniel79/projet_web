@@ -3,9 +3,9 @@
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('version'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('Id'); ?></th>
+			<th><?php echo $this->Paginator->sort('Version'); ?></th>
+			<th><?php echo $this->Paginator->sort('Nom'); ?></th>
 			<th><?php echo $this->Paginator->sort('titre_1'); ?></th>
 			<th><?php echo $this->Paginator->sort('titre_2'); ?></th>
 			<th><?php echo $this->Paginator->sort('titre_3'); ?></th>

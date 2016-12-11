@@ -3,10 +3,10 @@
 	<fieldset>
 		<legend><?php echo __('Editer un rôle'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('role');
+		echo $this->Form->input('id',array('label' => 'Id'));
+		echo $this->Form->input('role',array('label' => 'Rôle'));
 		echo $this->Form->input('Zone');
-		echo $this->Form->input('User');
+		echo $this->Form->input('User',array('label' => 'Utilisateurs'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>

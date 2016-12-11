@@ -3,8 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Editer un formulaire de retour'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('create');
+		echo $this->Form->input('id',array('label' => 'Id'));
+		echo $this->Form->input('create',array('label' => 'Date de création'));
 		echo $this->Form->input('commentaire_1');
 		echo $this->Form->input('evaluation_1');
 		echo $this->Form->input('commentaire_2');
