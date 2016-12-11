@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-public $uses = array('User','Classroom','Section','Role');
+public $uses = array('User','Classroom','Role');
 /**
  * Components
  *
@@ -85,10 +85,9 @@ public $uses = array('User','Classroom','Section','Role');
 			}
 		}
 		$classrooms = $this->User->Classrooms->find('list');
-                $sections = $this->User->Sections->find('list');
-		$roles = $this->User->Role->find('list');
+                $roles = $this->User->Role->find('list');
 		$ufs = $this->User->Uf->find('list');
-		$this->set(compact('classrooms','sections' ,'roles', 'ufs'));
+		$this->set(compact('classrooms' ,'roles', 'ufs'));
 	}
 
 /**
@@ -135,10 +134,9 @@ public $uses = array('User','Classroom','Section','Role');
 			$this->request->data = $this->User->find('first', $options);
 		}
 		$classrooms = $this->User->Classrooms->find('list');
-                $sections = $this->User->Sections->find('list');
-		$roles = $this->User->Role->find('list');               
+                $roles = $this->User->Role->find('list');               
 		$ufs = $this->User->Uf->find('list');
-		$this->set(compact('classrooms','sections','roles', 'ufs'));
+		$this->set(compact('classrooms','roles', 'ufs'));
 		
 	}
 /**
