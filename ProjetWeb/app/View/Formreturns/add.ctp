@@ -19,6 +19,7 @@
 		echo $this->Form->input('commentaire_7');
 		echo $this->Form->input('evaluation_7');
 		echo $this->Form->input('ufs_id');
+                echo $this->Form->input('formulaires_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>

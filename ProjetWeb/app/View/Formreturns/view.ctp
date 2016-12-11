@@ -86,6 +86,11 @@
 			<?php echo $this->Html->link($formreturn['Ufs']['name'], array('controller' => 'ufs', 'action' => 'view', $formreturn['Ufs']['id'])); ?>
 			&nbsp;
 		</dd>
+                <dt><?php echo __('Formulaire de référence'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($formreturn['Formulaires']['version'], array('controller' => 'formulaires', 'action' => 'view', $formreturn['Formulaires']['id'])); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

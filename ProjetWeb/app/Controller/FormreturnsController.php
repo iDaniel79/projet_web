@@ -59,7 +59,8 @@ class FormreturnsController extends AppController {
 			}
 		}
 		$ufs = $this->Formreturn->Ufs->find('list');
-		$this->set(compact('ufs'));
+                $formulaires = $this->Formreturn->Formulaires->find('list');
+		$this->set(compact('ufs','formulaires'));
 	}
 
 /**
@@ -85,7 +86,8 @@ class FormreturnsController extends AppController {
 			$this->request->data = $this->Formreturn->find('first', $options);
 		}
 		$ufs = $this->Formreturn->Ufs->find('list');
-		$this->set(compact('ufs'));
+                $formulaires = $this->Formreturn->Formulaires->find('list');
+		$this->set(compact('ufs','formulaires'));
 	}
 
 /**
