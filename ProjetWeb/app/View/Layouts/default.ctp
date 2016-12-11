@@ -14,7 +14,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('cake.generic','iepsa'));
+		echo $this->Html->css(array('cake.generic','iepsa')); 
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

@@ -7,10 +7,10 @@ and open the template in the editor.
     Created on : 26-nov.-2016, 17:47:19
     Author     : Rézette
 */
-#general {
+#general { 
 	width:1200px;
 	height:800px;
-	background-color:#8c0c19;
+	background-color:#8c0c19; 
 	margin:auto;
 }
 
@@ -18,7 +18,7 @@ and open the template in the editor.
     padding: 10px 20px;
 	/*width:1200px;*/
 	height:120px;
-	background-color:#F5F5F5;
+	background-color:#F5F5F5; 
 	color: #000000;
 	font-family:"Helvetica";
 	font-size: 100%;
