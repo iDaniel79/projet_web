@@ -50,7 +50,7 @@ end_last_page div
         }
         
         //Récupération du patron formulaire
-        $queryform = $bdd->query("SELECT max(`id`), `version`,`name`,`titre_1`,`titre_2`,`titre_3`,`titre_4`,`titre_5`,`titre_6`,`titre_7` FROM `formulaires` limit 1 ");
+        $queryform = $bdd->query("SELECT `id`, `version`,`name`,`titre_1`,`titre_2`,`titre_3`,`titre_4`,`titre_5`,`titre_6`,`titre_7` FROM `formulaires` order by id desc limit 1");
         $titre = $queryform->fetch();
         
         //Récupération de la classe liée à l'UF
