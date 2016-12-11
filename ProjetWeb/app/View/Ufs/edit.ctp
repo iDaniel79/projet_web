@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('id',array('label' => 'Id'));
 		echo $this->Form->input('name',array('label' => 'Nom'));
-		echo $this->Form->input('code',array('label' => 'Code'));
+		echo $this->Form->input('code',array('label' => 'Code UF'));
 		echo $this->Form->input('User',array('label' => 'Utilisateurs'));
 	?>
 	</fieldset>
