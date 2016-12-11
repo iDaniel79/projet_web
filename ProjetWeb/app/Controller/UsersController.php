@@ -408,7 +408,7 @@ public $uses = array('User','Classroom','Role');
 		    	}
 		    	// Fermeture du fichier
 		    	fclose($file);
-		    	$this->Flash->success(__('Votre fichier CSV à bien été chargé en base de données.'));
+		    	$this->Flash->success(__('Votre fichier CSV a bien été chargé en base de données.'));
 		    	$this->redirect('../users/index');
 		    	
 
