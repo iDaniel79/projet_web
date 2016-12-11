@@ -12,7 +12,7 @@
 
 <div class="actions">
 	<ul>			
-		<li><?php echo $this->Html->link(__('Nous contacter'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>	               
+		<li><?php echo $this->Html->link(__('Nous contacter'), 'http://www.web.promsoc-sud-luxembourg.be/index.php/contact'); ?> </li>	               
 	</ul>
 
 </div>
