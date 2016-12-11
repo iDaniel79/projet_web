@@ -74,7 +74,7 @@
 						<?php echo h($formulaire['Formulaire']['date_verif_check']); ?>
 						&nbsp;
 					</dd>
-					<dt><?php echo __('Date de validation de la direction 6'); ?></dt>
+					<dt><?php echo __('Date de validation de la direction'); ?></dt>
 					<dd>
 						<?php echo h($formulaire['Formulaire']['date_directeur_check']); ?>
 						&nbsp;
