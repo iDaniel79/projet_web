@@ -3,9 +3,9 @@
 	<fieldset>
 		<legend><?php echo __('Ajouter une zone'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('path');
-		echo $this->Form->input('Role');
+		echo $this->Form->input('name',array('label' => 'Nom de la zone'));
+		echo $this->Form->input('path',array('label' => 'Chemin'));
+		echo $this->Form->input('Role',array('label' => 'Rôles'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>

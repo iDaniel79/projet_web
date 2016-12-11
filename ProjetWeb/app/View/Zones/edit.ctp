@@ -3,10 +3,10 @@
 	<fieldset>
 		<legend><?php echo __('Editer une zone'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('path');
-		echo $this->Form->input('Role');
+		echo $this->Form->input('id',array('label' => 'Id'));
+		echo $this->Form->input('name',array('label' => 'Nom'));
+		echo $this->Form->input('path',array('label' => 'Chemin'));
+		echo $this->Form->input('Role',array('label' => 'Rôles'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>

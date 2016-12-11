@@ -6,12 +6,12 @@
 			<?php echo h($zone['Zone']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt><?php echo __('Nom'); ?></dt>
 		<dd>
 			<?php echo h($zone['Zone']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Path'); ?></dt>
+		<dt><?php echo __('Chemin'); ?></dt>
 		<dd>
 			<?php echo h($zone['Zone']['path']); ?>
 			&nbsp;
