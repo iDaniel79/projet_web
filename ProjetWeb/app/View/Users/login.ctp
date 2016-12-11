@@ -3,7 +3,7 @@
             <fieldset>
                 <legend><?= __('Se connecter') ?></legend>
                 <?= $this->Form->input('email') ?>
-                <?= $this->Form->input('password') ?>		       
+                <?= $this->Form->input('password', array('label' => 'Mot de passe')) ?>		       
             </fieldset>
                
         <?php echo $this->Form->end(__('Se connecter')); ?>

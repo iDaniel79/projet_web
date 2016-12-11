@@ -7,6 +7,6 @@
 					echo $this->Form->input('password2',array('label' => 'Confirmation du mot de passe', 'type' => 'password'));
 				?>      
             </fieldset>
-        <?= $this->Form->button(__('Valider')); ?>
+            <?php echo $this->Form->end(__('Valider')); ?>       
         <?= $this->Form->end() ?>
 </div>
