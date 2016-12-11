@@ -22,7 +22,7 @@ class Formreturn extends AppModel {
 	public $validate = array(
 		'id' => array(
 			'notBlank' => array(
-				'rule' => array('notBlank'),
+				//'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
