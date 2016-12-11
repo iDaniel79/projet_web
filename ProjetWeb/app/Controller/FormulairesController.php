@@ -36,7 +36,7 @@ class FormulairesController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Formulaire->exists($id)) {
-			throw new NotFoundException(__('Invalid formulaire'));
+			throw new NotFoundException(__('Formulaire invalide'));
 		}
 		$options = array('conditions' => array('Formulaire.' . $this->Formulaire->primaryKey => $id));
 		$this->set('formulaire', $this->Formulaire->find('first', $options));
@@ -51,10 +51,10 @@ class FormulairesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Formulaire->create();
 			if ($this->Formulaire->save($this->request->data)) {
-				$this->Flash->success(__('The formulaire has been saved.'));
+				$this->Flash->success(__('Le formulaire  a été sauvé.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The formulaire could not be saved. Please, try again.'));
+				$this->Flash->error(__("Le formulaire n'a pas été sauvé."));
 			}
 		}
 	}
@@ -68,14 +68,14 @@ class FormulairesController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Formulaire->exists($id)) {
-			throw new NotFoundException(__('Invalid formulaire'));
+			throw new NotFoundException(__('Formulaire invalide'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Formulaire->save($this->request->data)) {
-				$this->Flash->success(__('The formulaire has been saved.'));
+				$this->Flash->success(__('Le formulaire  a été sauvé.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The formulaire could not be saved. Please, try again.'));
+				$this->Flash->error(__("Le formulaire n'a pas été sauvé."));
 			}
 		} else {
 			$options = array('conditions' => array('Formulaire.' . $this->Formulaire->primaryKey => $id));
@@ -93,13 +93,13 @@ class FormulairesController extends AppController {
 	public function delete($id = null) {
 		$this->Formulaire->id = $id;
 		if (!$this->Formulaire->exists()) {
-			throw new NotFoundException(__('Invalid formulaire'));
+			throw new NotFoundException(__('Formulaire invalide'));
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Formulaire->delete()) {
-			$this->Flash->success(__('The formulaire has been deleted.'));
+			$this->Flash->success(__('Le formulaire  a été supprimé.'));
 		} else {
-			$this->Flash->error(__('The formulaire could not be deleted. Please, try again.'));
+			$this->Flash->error(__("Le formulaire n'a pas été supprimé."));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

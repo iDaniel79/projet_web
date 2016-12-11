@@ -16,9 +16,9 @@
 		<td><?php echo h($zone['Zone']['name']); ?>&nbsp;</td>
 		<td><?php echo h($zone['Zone']['path']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $zone['Zone']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $zone['Zone']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $zone['Zone']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $zone['Zone']['id']))); ?>
+			<?php echo $this->Html->link(__('Consulter'), array('action' => 'view', $zone['Zone']['id'])); ?>
+			<?php echo $this->Html->link(__('Editer'), array('action' => 'edit', $zone['Zone']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Supprimer'), array('action' => 'delete', $zone['Zone']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $zone['Zone']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -27,23 +27,23 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		'format' => __("Page {:page} sur {:pages}, montre {:current} enregristrements sur un total de {:count}, démarre sur l'enregistrement {:start}, termine sur l'enregistrement {:end}")
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('précédent'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('suivant') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php //echo $this->Html->link(__('New Zone'), array('action' => 'add')); ?></li>
-		<li><?php //echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php //echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouvelle zone'), array('action' => 'add')); ?></li>
+		<li><?php //echo $this->Html->link(__('Liste rôles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau rôle'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
                 <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

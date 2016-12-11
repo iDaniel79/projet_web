@@ -21,34 +21,37 @@
     ?>
     <tbody>
        <dl>
-            <dt>
-            <form method="GET" action ="/projet_web/ProjetWeb/formreturns/pdf">
+            
+            <fieldset>
+                <legend><?= __("Sélectionner l'UF pour le rapport d'évaluation") ?></legend>
+                <form method="GET" action ="/projet_web/ProjetWeb/formreturns/pdf">
 
-                    UF Concernée : 
+                        UF Concernée : 
 
-                            <select name="fUF"/>
-                            <?php
-                             while ($donnees = $query_uf->fetch()){
-                                echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>' ;
-                             }      
-                            ?>
-                            </select>
+                                <select name="fUF"/>
+                                <?php
+                                 while ($donnees = $query_uf->fetch()){
+                                    echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>' ;
+                                 }      
+                                ?>
+                                </select>
 
-                    </br>
-                    </br>
-                    <input type="submit" value ="Consulter le rapport" />
+                        </br>
+                        </br>
+                        <input type="submit" value ="Consulter le rapport" />
 
-             </form>
-            </dt>       
+                </form>
+            </fieldset>
+                  
         </dl>
     </tbody>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php //echo $this->Html->link(__('New Formreturn'), array('action' => 'add')); ?></li>
-		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php //echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau formulaire de retour'), array('action' => 'add')); ?></li>
+		<li><?php //echo $this->Html->link(__('Liste Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouvelle Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
                 <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

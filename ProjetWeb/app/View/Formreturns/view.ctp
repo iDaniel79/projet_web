@@ -1,5 +1,5 @@
 <div class="formreturns view">
-<h2><?php echo __('Formreturn'); ?></h2>
+<h2><?php echo __('Formulaire de retour'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -91,12 +91,12 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php //echo $this->Html->link(__('Edit Formreturn'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?> </li>
-		<li><?php //echo $this->Form->postLink(__('Delete Formreturn'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $formreturn['Formreturn']['id']))); ?> </li>
-		<li><?php //echo $this->Html->link(__('List Formreturns'), array('action' => 'index')); ?> </li>
-		<li><?php //echo $this->Html->link(__('New Formreturn'), array('action' => 'add')); ?> </li>
-		<li><?php //echo $this->Html->link(__('List Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
-		<li><?php //echo $this->Html->link(__('New Ufs'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Editer formulaire de retour'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?> </li>
+		<li><?php //echo $this->Form->postLink(__('Supprimer formulaire de retour'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $formreturn['Formreturn']['id']))); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste formulaires de retour'), array('action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau formulaire de retour'), array('action' => 'add')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Liste Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
+		<li><?php //echo $this->Html->link(__('Nouveau Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
                 <?php include('/../Zones/zone.ctp')?>
 	</ul>
 </div>

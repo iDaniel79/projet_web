@@ -22,6 +22,6 @@
 <body>
 	<?php echo $this->fetch('content'); ?>
 
-	<p>This email was sent using the <a href="http://cakephp.org">CakePHP Framework</a></p>
+	<p>Site l'<a href="http://www.promsoc-arlon.be/new/index.php">IEPS ARLON.</a></p>
 </body>
 </html>

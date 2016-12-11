@@ -50,8 +50,16 @@ end_last_page div
         }
         
         //Récupération du patron formulaire
-        $queryform = $bdd->query("SELECT max(`id`), `version`,`name`,`titre_1`,`titre_2`,`titre_3`,`titre_4`,`titre_5`,`titre_6`,`titre_7` FROM `formulaires` limit 1 ");
+        $queryform = $bdd->query("SELECT `id`, `version`,`name`,`titre_1`,`titre_2`,`titre_3`,`titre_4`,`titre_5`,`titre_6`,`titre_7` FROM `formulaires` order by id desc limit 1");
         $titre = $queryform->fetch();
+        
+        //Récupération de la classe liée à l'UF
+        $queryclasse = $bdd->query("select distinct classrooms.code FROM `classrooms` LEFT JOIN `users` ON `users`.`classrooms_id` = `classrooms`.`id` "
+                . "LEFT JOIN `users_ufs` ON `users_ufs`.`user_id` = `users`.`id` LEFT JOIN `ufs` ON `users_ufs`.`uf_id` = `ufs`.`id` where ufs.name = '".$_GET['fUF']."'" );
+        
+                
+        $queryprof = $bdd->query("select users.name, users.firstname FROM `users` LEFT JOIN `users_ufs` ON `users_ufs`.`user_id` = `users`.`id` LEFT JOIN `ufs` ON `users_ufs`.`uf_id` = `ufs`.`id` where ufs.name = '".$_GET['fUF']."'" );
+        $prof = $queryprof->fetch()
 ?>
 
 <div class="formreturns pdf">
@@ -86,7 +94,13 @@ end_last_page div
         <col style="width: 80%">
         <tr>			
                 <td>Section</td>
-                <td></td>
+                <td>
+                <?php while ($classe = $queryclasse->fetch()){
+                    echo $classe['code']." ";
+                }
+                
+                ?>               
+                </td>
         </tr>
         <tr>			
                 <td>Unité de formation</td>
@@ -94,7 +108,9 @@ end_last_page div
         </tr>
         <tr>			
                 <td>Chargé de cours</td>
-                <td></td>
+                <td>
+                    <?php echo $prof['name']." ".$prof['firstname']?>
+                </td>
         </tr>
     </table>
  
@@ -228,6 +244,8 @@ end_last_page div
         $querycommentaires->closeCursor(); // Termine le traitement de la requête
         $queryform->closeCursor();
         $queryevaluation->closeCursor();
+        $queryclasse->closeCursor();
+        $queryprof->closeCursor();
         ?>  
     
 </div>

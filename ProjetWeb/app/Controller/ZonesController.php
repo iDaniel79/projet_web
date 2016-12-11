@@ -36,7 +36,7 @@ class ZonesController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Zone->exists($id)) {
-			throw new NotFoundException(__('Invalid zone'));
+			throw new NotFoundException(__("Zone invalide"));
 		}
 		$options = array('conditions' => array('Zone.' . $this->Zone->primaryKey => $id));
 		$this->set('zone', $this->Zone->find('first', $options));
@@ -51,10 +51,10 @@ class ZonesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Zone->create();
 			if ($this->Zone->save($this->request->data)) {
-				$this->Flash->success(__('The zone has been saved.'));
+				$this->Flash->success(__("La zone a été sauvé."));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The zone could not be saved. Please, try again.'));
+				$this->Flash->error(__("La zone n'a pas été sauvé."));
 			}
 		}
 		$roles = $this->Zone->Role->find('list');
@@ -70,14 +70,14 @@ class ZonesController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Zone->exists($id)) {
-			throw new NotFoundException(__('Invalid zone'));
+			throw new NotFoundException(__("Zone invalide"));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Zone->save($this->request->data)) {
-				$this->Flash->success(__('The zone has been saved.'));
+				$this->Flash->success(__("La zone a été sauvé."));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The zone could not be saved. Please, try again.'));
+				$this->Flash->error(__("La zone n'a pas été sauvé."));
 			}
 		} else {
 			$options = array('conditions' => array('Zone.' . $this->Zone->primaryKey => $id));
@@ -97,13 +97,13 @@ class ZonesController extends AppController {
 	public function delete($id = null) {
 		$this->Zone->id = $id;
 		if (!$this->Zone->exists()) {
-			throw new NotFoundException(__('Invalid zone'));
+			throw new NotFoundException(__("Zone invalide"));
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Zone->delete()) {
-			$this->Flash->success(__('The zone has been deleted.'));
+			$this->Flash->success(__("La zone a été supprimé."));
 		} else {
-			$this->Flash->error(__('The zone could not be deleted. Please, try again.'));
+			$this->Flash->error(__("La zone n'a pas été supprimé."));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
