@@ -18,7 +18,13 @@
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>		
 		<td><?php echo h($user['User']['firstname']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>		
-		<td><?php echo h($user['User']['active']); ?>&nbsp;</td>
+		<td><?php if($user['User']['active'] == 1)
+					{
+						echo h("Oui");
+					}else
+					{
+						echo h("Non");
+					}?>&nbsp;</td>
 		<td><?php echo h($user['User']['create']); ?>&nbsp;</td>		
 		<td class="actions">
 			<?php echo $this->Html->link(__('Consulter'), array('action' => 'view', $user['User']['id'])); ?>
