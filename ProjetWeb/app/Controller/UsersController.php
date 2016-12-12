@@ -30,8 +30,52 @@ public $uses = array('User','Classroom','Role');
 
   */
 	public function index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		if($_SESSION['role'] == 'Admin')
+		{
+			$list= $this->Role->find('list', array(
+				'fields' => array('Role.id', 'Role.role')));
+
+			$this->set('list', $list);
+			if(!empty($this->request->data))
+				{
+				 	$data = $this->request->data;
+					$users = $this->Paginator->paginate('Role',array('role.id' => $data['Role']));
+					$this->User->recursive = 0;
+					$this->set('users',$users[0]['User']);
+				}
+			}else if($_SESSION['role'] == 'Direction')
+					{
+						$list= $this->Role->find('list', array(
+							'fields' => array('Role.id', 'Role.role'),
+							'conditions' => array('OR' => array(
+														array('Role.role' => 'Professeur'),
+														array('Role.role' => 'Eleve'),
+														array('Role.role' => 'Secrétaire')))));
+						$this->set('list', $list);
+						if(!empty($this->request->data))
+							{
+							 	$data = $this->request->data;
+								$users = $this->Paginator->paginate('Role',array('role.id' => $data['Role']));
+								$this->User->recursive = 0;
+								$this->set('users',$users[0]['User']);
+							}
+
+					}else if($_SESSION['role'] == 'Secrétaire')
+							{
+								$list= $this->Role->find('list', array(
+									'fields' => array('Role.id', 'Role.role'),
+									'conditions' => array('OR' => array(
+																array('Role.role' => 'Professeur'),
+																array('Role.role' => 'Eleve')))));
+								$this->set('list', $list);
+								if(!empty($this->request->data))
+									{
+									 	$data = $this->request->data;
+										$users = $this->Paginator->paginate('Role',array('role.id' => $data['Role']));
+										$this->User->recursive = 0;
+										$this->set('users',$users[0]['User']);
+									}
+							}
 	}
 
 /**
