@@ -124,7 +124,13 @@ public $uses = array('User','Classroom','Role');
 
 			if ($this->User->save($data)) {			
 				$this->Flash->success(__("L'utilisateur à été sauvé."));
+
+				if($_SESSION['role'] == 'Eleve'){
+					return $this->redirect(array('action' => 'view/'.$_SESSION['id_user']));
+				}
+
 				return $this->redirect(array('action' => 'index'));
+
 			} else {
 				$this->Flash->error(__("L'utilisateur n'a pas été sauvé."));
 			}
