@@ -318,11 +318,11 @@ AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `name`, `birthdate`, `phone`, `mobile`, `street`, `number`, `city`, `postal_code`, `country`, `active`, `create`, `classrooms_id`) VALUES
-(3, 'admin@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', '', '', '', '', '', '', '', '', '', '', 1, '2016-12-10 09:34:00', 2800),
-(4, 'eleve@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', '', '', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:46:00', 2800),
+(3, 'admin@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', 'André', 'Ministrateur', '', '', '', '', '', '', '', '', 1, '2016-12-10 09:34:00', 2800),
+(4, 'eleve@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', 'Florian', 'Haas', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:46:00', 2800),
 (5, 'secretaire@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', '', '', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:47:00', 2800),
-(6, 'professeur@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', 'Aman', 'Fairon', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:48:00', 2800),
-(7, 'direction@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', '', '', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:50:00', 2800),
+(6, 'professeur@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', 'Geoffrey', 'Szablot', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:48:00', 2800),
+(7, 'direction@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', 'Patricia', 'Peignois', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:50:00', 2800),
 (8, 'scribe@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', '', '', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:50:00', 2800),
 (9, 'verificateur@projetweb2016.com', '8cc4e03c60fcee35bfdefbb733cbbce65fb3c5cf', '', '', '', '', '', '', '', '', '', '', 1, '2016-12-10 18:53:00', 2800);
 
