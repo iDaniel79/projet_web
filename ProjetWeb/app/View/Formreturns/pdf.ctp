@@ -56,9 +56,10 @@ end_last_page div
         //Récupération de la classe liée à l'UF
         $queryclasse = $bdd->query("select distinct classrooms.code FROM `classrooms` LEFT JOIN `users` ON `users`.`classrooms_id` = `classrooms`.`id` "
                 . "LEFT JOIN `users_ufs` ON `users_ufs`.`user_id` = `users`.`id` LEFT JOIN `ufs` ON `users_ufs`.`uf_id` = `ufs`.`id` where ufs.name = '".$_GET['fUF']."'" );
-        
-                
-        $queryprof = $bdd->query("select users.name, users.firstname FROM `users` LEFT JOIN `users_ufs` ON `users_ufs`.`user_id` = `users`.`id` LEFT JOIN `ufs` ON `users_ufs`.`uf_id` = `ufs`.`id` where ufs.name = '".$_GET['fUF']."'" );
+                                
+        //$queryprof = $bdd->query("select users.name, users.firstname FROM `users` LEFT JOIN `users_ufs` ON `users_ufs`.`user_id` = `users`.`id` LEFT JOIN `ufs` ON `users_ufs`.`uf_id` = `ufs`.`id` where ufs.name = '".$_GET['fUF']."'" );
+        $queryprof = $bdd->query("select users.name, users.firstname FROM `users` LEFT JOIN `users_ufs` ON `users_ufs`.`user_id` = `users`.`id` LEFT JOIN `ufs` ON `users_ufs`.`uf_id` = `ufs`.`id` "
+                . "LEFT JOIN `users_roles` ON `users_roles`.`user_id` = `users`.`id` LEFT JOIN `roles` ON `users_roles`.`role_id` = `roles`.`id` where ufs.name = '".$_GET['fUF']."' and roles.role = 'professeur' ");
         $prof = $queryprof->fetch()
 ?>
 
