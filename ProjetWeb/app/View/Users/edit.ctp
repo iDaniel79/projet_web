@@ -14,13 +14,16 @@
 		echo $this->Form->input('number',array('label' => 'Numéro'));
 		echo $this->Form->input('city',array('label' => 'Ville'));
 		echo $this->Form->input('postal_code',array('label' => 'Code postal'));
-		echo $this->Form->input('country',array('label' => 'Pays'));
-		echo $this->Form->input('active',array('label' => 'Actif'));
-		echo $this->Form->input('create',array('label' => 'Date de création'));
-		echo $this->Form->input('classrooms_id',array('label' => 'Classe'));
-		echo $this->Form->input('Role',array('label' => 'Rôle'));
-		echo $this->Form->input('Uf',array('label' => 'Unités de formation'));
-		echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));						
+		echo $this->Form->input('country',array('label' => 'Pays'));		
+		if ($_SESSION['role'] != 'Eleve'){
+			echo $this->Form->input('active',array('label' => 'Actif'));
+			echo $this->Form->input('create',array('label' => 'Date de création'));
+			echo $this->Form->input('classrooms_id',array('label' => 'Classe'));
+			echo $this->Form->input('Role',array('label' => 'Rôle'));
+			echo $this->Form->input('Uf',array('label' => 'Unités de formation'));
+		}
+		echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));			
+					
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Valider')); ?>
@@ -37,6 +40,13 @@
 		<li><?php //echo $this->Html->link(__('Nouveau rôle'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
 		<li><?php //echo $this->Html->link(__('Liste Ufs'), array('controller' => 'ufs', 'action' => 'index')); ?> </li>
 		<li><?php //echo $this->Html->link(__('Nouvelle Uf'), array('controller' => 'ufs', 'action' => 'add')); ?> </li>
-                <?php include('/../Zones/zone.ctp')?>
+
+		<?php if ( $_SESSION['role'] == 'Eleve'){ ?>
+			<li><?php echo $this->Html->link(__('Consulter'), array('controller' => 'users', 'action' => 'view', $_SESSION['id_user'])); ?></li>
+			<li><?php echo $this->Html->link(__('Modifier'), array('controller' => 'users', 'action' => 'edit', $_SESSION['id_user'])); ?> </li>
+		<?php } else {
+		 	include('/../Zones/zone.ctp');
+		 } ?>
+
 	</ul>
 </div>

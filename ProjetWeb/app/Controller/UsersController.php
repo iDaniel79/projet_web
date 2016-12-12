@@ -46,7 +46,7 @@ public $uses = array('User','Classroom','Role');
 			throw new NotFoundException(__('Utilisateur invalide'));
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
+		$this->set('user', $this->User->find('first', $options));		
 	}
 
 /**
@@ -198,7 +198,7 @@ public $uses = array('User','Classroom','Role');
 	                                                . 'LEFT JOIN `users` ON `users_roles`.`user_id` = `users`.`id` '
 	                                                . 'where users.id = "'.$_SESSION['id_user'].'"';
 	                                        $roleliste = $this->User->query($sql);
-	                                        $_SESSION['role'] = $roleliste[0]['roles']['role'];
+	                                        $_SESSION['role'] = $roleliste[0]['roles']['role'];	                                       
 	                                        
 	                                        $this->redirect('../');
 					}
