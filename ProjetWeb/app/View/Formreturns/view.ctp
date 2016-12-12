@@ -94,8 +94,12 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Accueil'), array('controller' => 'pages', 'action' => 'home')); ?></li>
+		<li><?php echo $this->Html->link(__('Mon profil'), array('controller' => 'users', 'action' => 'view', $_SESSION['id_user'])); ?></li>
+		<li><?php echo $this->Html->link(__('Gérer profil'), array('controller' => 'users', 'action' => 'edit', $_SESSION['id_user'])); ?></li>
+		</br>
 		<li><?php //echo $this->Html->link(__('Editer formulaire de retour'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?> </li>
 		<li><?php //echo $this->Form->postLink(__('Supprimer formulaire de retour'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $formreturn['Formreturn']['id']))); ?> </li>
 		<li><?php //echo $this->Html->link(__('Liste formulaires de retour'), array('action' => 'index')); ?> </li>

@@ -5,11 +5,15 @@
 	</fieldset>		
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
-		<?php if ( $_SESSION['role'] == 'Eleve'){ ?>
-			<li><?php echo $this->Html->link(__('Consulter'), array('controller' => 'users', 'action' => 'view', $_SESSION['id_user'])); ?></li>
-			<li><?php echo $this->Html->link(__('Modifier'), array('controller' => 'users', 'action' => 'edit', $_SESSION['id_user'])); ?></li>
+		<li><?php echo $this->Html->link(__('Accueil'), array('controller' => 'pages', 'action' => 'home')); ?></li>
+		<li><?php echo $this->Html->link(__('Mon profil'), array('controller' => 'users', 'action' => 'view', $_SESSION['id_user'])); ?></li>
+		<li><?php echo $this->Html->link(__('Gérer profil'), array('controller' => 'users', 'action' => 'edit', $_SESSION['id_user'])); ?></li>
+		</br>
+
+		<?php if ( $_SESSION['role'] == 'Eleve' || $_SESSION['role'] == 'Professeur'){ ?>
+			
 		<?php } else {		
         	include('/../Zones/zone.ctp');
         } ?>
