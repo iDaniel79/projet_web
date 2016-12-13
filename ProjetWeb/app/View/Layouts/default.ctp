@@ -12,7 +12,8 @@ $cakeDescription = __d('cake_dev', 'IEPS ARLON');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('cake.generic','iepsa')); 
+		echo $this->Html->css(array('cake.generic','iepsa', 'form-builder', 'form-render', 'custom'));
+                echo $this->Html->script(array('jquery', 'jquery-ui', 'form-builder', 'form-render' ));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

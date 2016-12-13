@@ -1,0 +1,363 @@
+/**** BODY ***************************************************************************************************************************/
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+    color: #669933;
+
+    padding-top: 60px;
+
+    background-image: linear-gradient(to left, transparent 0%,white 140%), url("../../images/asta_background.png");
+    /*background-size: 40%;*/
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container{
+    max-width: 960px;
+    color: #000;
+    margin: auto;
+    /*background-color: #f00;*/
+}
+
+.container form *{
+    width: 100%;
+    /*background-color: #00f;*/
+}
+
+.form-group{
+    width: 100%;
+    background-color: #00f;
+}
+
+.radio-group{
+    background-color: #0f0;
+    width: 100%;
+}
+
+.container form .radio-group *, .fbRadioGroup {
+    max-width: 20%;
+    background-color: #f00;
+}
+
+#fb-editor{
+    max-width: 940px;
+}
+
+.access-wrap, .className-wrap, .required-wrap, .placeholder-wrap, .rows-wrap, .name-wrap, .maxlength-wrap, .other-wrap {
+    display:none;
+}
+
+#button-valider{
+    width: 100px;
+    margin-top: 30px;
+}
+
+/*#google_bar{
+    width: 960px;
+    margin: auto;
+    heigth: 400px;
+    margin-bottom: 20px;
+}
+
+#container #p_back_image {
+    text-align: center;
+}
+
+#footer{
+    width: 960px;
+    color: #669933;
+    margin: auto;
+    font-size: small;
+    background-color: transparent;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+hr {
+    border-color: #669933;
+}
+
+.row {
+    margin-left: 0px;
+}
+
+*** MEDIA **************************************************************************************************************************
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+*** NAVBAR **************************************************************************************************************************
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 20px;
+}
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse {
+  background-color: #669933;
+  border-color: #ccff99;
+}
+.navbar-inverse .navbar-text {
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #669933;
+  background-color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #669933;
+  background-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: #fff;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #fff;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #669933;
+}
+
+.datefont {
+    color: white;
+    padding-top: 14px;
+    padding-right: 50px;
+}
+*** LOGIN **************************************************************************************************************************
+
+#id_div{
+    width: 300px;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+*** NEWSBOX **************************************************************************************************************************
+
+.newsbox {
+	width: 75%;
+	float: left;
+	background-color: transparent;
+}
+	.newsboxtitle {
+		width: 100%;
+		color: #669933;
+		background-color: transparent;
+	}
+		.nbt_maintitle {
+			width: 100%;
+			max-height: 50px;
+			padding: 5px;
+			font-weight: bold;
+			font-size: medium;
+                        font-size: x-large;
+		}
+		.nbt_subtitle {
+			width: 75%;
+			max-height: 50px;
+			padding: 3px;
+			padding-left: 35px;
+			background-color: #99cc66;
+			float: left;
+                        color: #555;
+		}
+		.nbt_date {
+			width: 20%;
+			max-height: 50px;
+			background-color: #99cc66;
+			padding: 3px;
+			float: right;
+			text-align: center;
+                        color: white;
+		}
+
+	.newsboxbody {
+		width: 100%;
+		padding: 10px;
+	}
+		.nbb_text {
+			width: 100%;
+			float: left;
+			background-color: transparent;
+			color: #555;
+		}
+		.nbb_text_pic {
+			min-width: 80%;
+			max-width: 80%;
+			float: left;
+			background-color: transparent;
+			color: #555;
+		}
+		.nbb_image {
+			max-width: 18%;
+			max-height: 120px;
+			float: right;
+			background-color: transparent;
+			display: none;
+		}
+                .nbb_image  img{
+                    height: 120px;
+                    width : 95px;
+                }
+	.newsboxfooter {
+			width: 100%;
+			background-color: transparent;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		.nbf_autor {
+			width: 100%;
+			max-height: 50px;
+			float: right;
+			background-color: transparent;
+			text-align: right;
+		}
+
+*** UPDATE PREVIEW **************************************************************************************************************************
+
+#update_preview {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    width: 100%;
+    color: #555;
+}
+
+#update_preview tr, #newslist td{
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+    .no_article {
+        width: 15%;
+        font-weight: bold;
+        font-size: large;
+        color: red;
+    }
+    .cell_std{
+        padding-bottom: 5px;
+        width: 15%;
+    }
+    
+    .cell_std_title{
+        width: 10%;
+        color: #669933; 
+        font-weigth: bold;
+    }
+
+#alter_news {
+    width: 100%;
+    text-align: center;
+}
+
+    #radiobuttons, #input{
+        text-align: left;
+    }
+
+*** INSERT NEWS TABLE **************************************************************************************************************************
+
+#tbl_insertnews{
+    width: 100%;
+}
+
+.cell_left_insertnews{
+    width: 20%;
+    min-width: 100px;
+    vertical-align: top;
+    text-align: right;
+    padding-right: 10px;
+}
+
+    .cell_right_insertnews input{
+        width: 40%;
+        min-width: 100px;
+        border-style: solid;
+        border-color: #669933;
+        color: black;
+        padding: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 5px;
+    }
+
+.cell_right_insertnews{
+    width: 80%;
+    min-width: 400px;
+}
+
+    .cell_right_insertnews textarea{
+        width: 100%;
+        border-style: solid;
+        border-color: #669933;
+        color: black;
+        padding: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+.submit_button{
+    padding-top: 20px;
+    text-align: right;
+}
+    .submit_button input{
+        color: white;
+        background: #669933;
+        border: none;
+        padding: 3px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 20px;
+        border-radius: 8px;
+    }
+    
+    .submit_button input:hover{
+        background: #f00;
+    }
+
+.warning_message{
+    color: red;
+}
+
+*** BACK IMG **************************************************************************************************************************
+
+
+*** XYZ **************************************************************************************************************************
+
+*/
