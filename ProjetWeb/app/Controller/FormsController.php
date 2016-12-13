@@ -271,7 +271,7 @@ class FormsController extends AppController
             $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
             $db->query($query);
             $db = null;
-            $this->Flash->success(__('Your form has been saved.'));
+            //$this->Flash->success(__('Your form has been saved.'));
             return $this->redirect(array('action' => 'index'));
 
         }
