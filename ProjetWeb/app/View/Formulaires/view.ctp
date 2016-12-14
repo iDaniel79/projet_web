@@ -62,7 +62,7 @@
 					&nbsp;
 				</dd>
 
-				<dt><?php echo __('Message de refus'); ?></dt>
+				<dt><?php echo __('Motif'); ?></dt>
 				<dd>
 					<?php echo h($formulaire['Formulaire']['error_message']); ?>
 					&nbsp;
