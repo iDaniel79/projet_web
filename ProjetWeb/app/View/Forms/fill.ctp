@@ -55,7 +55,7 @@
         var e_input = document.createElement("INPUT");
         e_input.setAttribute("name", "data[question][id_uf]");
         e_input.setAttribute("type", "text");
-        e_input.setAttribute("value", "uf informatique");
+        e_input.setAttribute("value", "1");
         formulaire.appendChild(e_input);
 
         

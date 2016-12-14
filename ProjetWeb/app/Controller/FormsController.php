@@ -156,9 +156,11 @@ class FormsController extends AppController
                 $elements = explode(",", $element);
                 $limit = sizeof($elements);
                 $query_array = array();
+                $query_links =   'ALTER TABLE `reponse_'.$id.'` ADD CONSTRAINT `fk_forms_'.$id.'` FOREIGN KEY (`id_form`) REFERENCES `forms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION'
+                        .', ADD CONSTRAINT `fk_ufs_'.$id.'` FOREIGN KEY (`id_uf`) REFERENCES `ufs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION';
                 $query_table = 'CREATE TABLE IF NOT EXISTS `db_formulaires`.`reponse'.$id.'` '
                         . ' (`id` INT(11) NOT NULL AUTO_INCREMENT,'
-                        . '`id_UF` INT(11) NOT NULL,'
+                        . '`id_uf` INT(11) NOT NULL,'
                         . '`id_form` INT (11) NOT NULL,'
                         . '`created` DATE NOT NULL, ';      
                 $query_table_end = 'PRIMARY KEY (`id`)) ENGINE = InnoDB AUTO_INCREMENT = 27 DEFAULT CHARACTER SET = utf8;';
@@ -173,6 +175,7 @@ class FormsController extends AppController
                         $db->query($query);
                         $count++;
                         $query_table = $query_table . '`id_question_'.$count.'` INT(11) NOT NULL, ';
+                        $query_links = $query_links . ', ADD CONSTRAINT `fk_questions_'.$id.'_'.$count.'` FOREIGN KEY (`id_question_'.$count.'`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION';
                     }  
                     if (strpos($elements[$i], 'type="radio-group"') !== false)
                     {
@@ -190,6 +193,7 @@ class FormsController extends AppController
                     }
                 }
                 $query_table = $query_table . $query_table_end;
+                $query_links = $query_links . ' ;';
                 
                 /* la position de la premiere question */
                 $position = $db->lastInsertId() - ($count - 1);
@@ -199,10 +203,6 @@ class FormsController extends AppController
                 /* create formular table */
                 $db->query($query_table);
                 /* set up relations */
-                //$query_links = 'ALTER TABLE `reponse'.$id.'` ADD CONSTRAINT `fk_forms` FOREIGN KEY (`id_form`) REFERENCES `forms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_uf` FOREIGN KEY (`id_uf`) REFERENCES `ufs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;';
-                $query_links = 'ALTER TABLE `reponse'.$id.'` ADD CONSTRAINT `fk_forms` FOREIGN KEY (`id_form`) REFERENCES `forms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;';
-                debug($query_links);
-                die();
                 $db->query($query_links);
 
                 /* disable connection to db */

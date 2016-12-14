@@ -1552,7 +1552,7 @@ function formBuilderEventsFn() {
         required: 'Requis',
         richText: 'Editeur de texte',
         roles: 'Acces',
-        save: 'Sauvegarder',
+        save: 'Valider',
         selectOptions: 'Options',
         select: 'Selection',
         selectColor: 'Selection coleur',

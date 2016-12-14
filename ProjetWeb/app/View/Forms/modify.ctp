@@ -20,12 +20,12 @@
     echo $this->Form->end(array('id' => 'saveStructForm', 'value' => 'Sauvegarder'));
 ?>
 
-<script>
+<script>    
     jQuery(document).ready(function($) {
         var $fbEditor = $(document.getElementById('fb-editor'));
         $fbEditor.innerHtml = '';        
         
-        var formData = <?php echo '\'' . $form['Form']['structure'] . '\''; ?>, fbOptions = {};
+        var formData = '<?php echo $form['Form']['structure']; ?>', fbOptions = {};
         document.getElementById('saveStructForm').style.visibility = "hidden";
 
         if (formData) {
@@ -42,46 +42,46 @@
             console.log('Form Saved');
             window.sessionStorage.setItem('formData', $fbEditor.data('formBuilder').formData);
             
-            var elements = window.sessionStorage.getItem('formData')
-            elements = elements.split('\n');
-            elements_count = elements.length;
-            
-            for(i; i < elements_count; i++)
-            {
-                if (elements[i].toString().indexOf('type="header"') > 0)
-                {
-                    count = question_count + 1;
-                    elements[i] = elements[i].toString().replace('></field>', ' name="titre-' + count + '" ></field>');
-                }
-                if (elements[i].toString().indexOf('type="paragraph"') > 0)
-                {
-                    question_count++;
-                    elements[i] = elements[i].toString().replace('></field>', ' name="question-' + question_count + '" ></field>');
-                }
-                if (elements[i].toString().indexOf('type="radio-group"') > 0)
-                {
-                    position = elements[i].toString().indexOf('name=');
-                    elements[i] = elements[i].toString().replace(elements[i].toString().substr(position), ' name="radio-group-' + question_count + '" >');
-                }
-                if (elements[i].toString().indexOf('type="text"') > 0)
-                {
-                    position = elements[i].toString().indexOf('name=');
-                    elements[i] = elements[i].toString().replace(elements[i].toString().substr(position), ' name="ligne-' + question_count + '" ></field>');
-                }
-                if (elements[i].toString().indexOf('type="textarea"') > 0)
-                {
-                    position = elements[i].toString().indexOf('name=');
-                    elements[i] = elements[i].toString().replace(elements[i].toString().substr(position), ' name="commentaire-' + question_count + '" ></field>');
-                }
-                elements_rebuild = elements_rebuild.toString() + ' ' + elements[i].toString();
-                //alert(elements_rebuild);
-            }
-            
-            document.getElementById("hidden_struct").value = elements;
-            window.sessionStorage.removeItem('formData');
-            document.getElementById("nb_question").value = question_count;
-            document.getElementById("message").innerHTML = "Le gabarit a bien été préparé pour l'enregistrement !";
-            document.getElementById('saveStructForm').style.visibility = "visible";
+//            var elements = window.sessionStorage.getItem('formData')
+//            elements = elements.split('\n');
+//            elements_count = elements.length;
+//            
+//            for(i; i < elements_count; i++)
+//            {
+//                if (elements[i].toString().indexOf('type="header"') > 0)
+//                {
+//                    count = question_count + 1;
+//                    elements[i] = elements[i].toString().replace('></field>', ' name="titre-' + count + '" ></field>');
+//                }
+//                if (elements[i].toString().indexOf('type="paragraph"') > 0)
+//                {
+//                    question_count++;
+//                    elements[i] = elements[i].toString().replace('></field>', ' name="question-' + question_count + '" ></field>');
+//                }
+//                if (elements[i].toString().indexOf('type="radio-group"') > 0)
+//                {
+//                    position = elements[i].toString().indexOf('name=');
+//                    elements[i] = elements[i].toString().replace(elements[i].toString().substr(position), ' name="radio-group-' + question_count + '" >');
+//                }
+//                if (elements[i].toString().indexOf('type="text"') > 0)
+//                {
+//                    position = elements[i].toString().indexOf('name=');
+//                    elements[i] = elements[i].toString().replace(elements[i].toString().substr(position), ' name="ligne-' + question_count + '" ></field>');
+//                }
+//                if (elements[i].toString().indexOf('type="textarea"') > 0)
+//                {
+//                    position = elements[i].toString().indexOf('name=');
+//                    elements[i] = elements[i].toString().replace(elements[i].toString().substr(position), ' name="commentaire-' + question_count + '" ></field>');
+//                }
+//                elements_rebuild = elements_rebuild.toString() + ' ' + elements[i].toString();
+//                //alert(elements_rebuild);
+//            }
+//            
+//            document.getElementById("hidden_struct").value = elements;
+//            window.sessionStorage.removeItem('formData');
+//            document.getElementById("nb_question").value = question_count;
+//            document.getElementById("message").innerHTML = "Le gabarit a bien été préparé pour l'enregistrement !";
+//            document.getElementById('saveStructForm').style.visibility = "visible";
         };
     });
 
