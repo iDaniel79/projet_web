@@ -1,4 +1,6 @@
-<!-- CREATION DYNAMIQUE D'UN NOUVEAU FORMULAIRE -->
+<p><?php // CREATION DYNAMIQUE D'UN NOUVEAU FORMULAIRE 
+include_once '/navigation.php';
+?></p>
 
 <h1>Créer un nouveau formulaire</h1>
 

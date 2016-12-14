@@ -1,3 +1,6 @@
+<p><?php  
+    include_once '/navigation.php';
+?></p>
 <!-- AFFICHAGE DE TOUS LES FORMULAIRES DYNAMIQUES -->
 
 <h1><?php echo h($form['Form']['titre']);?></h1> <!-- affiche le titre du formulaire -->

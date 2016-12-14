@@ -1,6 +1,9 @@
-<?php
-    // AFFICHAGE DES FROMULAIRES PAS ENCORE VERIFIES
-?>
+<p><?php  
+    include_once '/navigation.php';
+?></p>
+
+    <!--// AFFICHAGE DES FROMULAIRES PAS ENCORE VERIFIES-->
+
 
 <h1>Liste structure formulaires</h1>
 

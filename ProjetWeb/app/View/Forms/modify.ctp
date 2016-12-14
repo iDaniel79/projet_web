@@ -1,7 +1,8 @@
+<p><?php  
+    include_once '/navigation.php';
+?></p>
 
-<?php
-    // MODIFIER LE FORMULAIRE ENVOYE
-?>
+    <!--// MODIFIER LE FORMULAIRE ENVOYE-->
 
 <h1>Créer un nouveau formulaire</h1>
 

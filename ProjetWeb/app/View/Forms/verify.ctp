@@ -1,4 +1,7 @@
-<!-- VERIFICATION DU FORMUALIRE ENVOYE -->
+<p><?php  
+    include_once '/navigation.php';
+?></p>
+<!-- AFFICHAGE DU FORMULAIRE SELON ID DEPUIS LA LISTE /Forms/index.ctp -->
 <?php
     echo $this->Form->create('Form');
 ?>
@@ -17,7 +20,8 @@
 <div class="container">
     <form id="fb-render"></form> <!-- div ou l'on insère le formulaire créé par le framework form-builder -->
 </div>
-
+<!-- liste des frameworks requis  sont dans /View/Layouts/default.ctp -->
+<!-- script de création de formulaire selon la structure renvoyée -->
 <script>
     jQuery(document).ready(function($) {
         document.getElementById('span_date').value = document.getElementById('date_creation').value;
@@ -36,5 +40,11 @@
     });
 
 </script>
+<?php
 
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 

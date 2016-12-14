@@ -1,6 +1,9 @@
-<?php 
-    // AFFICHAGE DES FORMULAIRES POUVANT ETRE ENVOYES, DONC VERIFIES ET VALIDES
-?>
+<p><?php  
+    include_once '/navigation.php';
+?></p>
+
+    <!--// AFFICHAGE DES FORMULAIRES POUVANT ETRE ENVOYES, DONC VERIFIES ET VALIDES-->
+
 
 <h1>Liste structure formulaires</h1>
 

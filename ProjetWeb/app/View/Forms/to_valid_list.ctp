@@ -1,6 +1,8 @@
-<?php 
-    // AFFICHAGE UNIQUEMENT DES FORMULAIRES DEJA VERIFIE
-?>
+<p><?php  
+    include_once '/navigation.php';
+?></p>
+    <!--// AFFICHAGE UNIQUEMENT DES FORMULAIRES DEJA VERIFIE-->
+
 
 <h1>Liste structure formulaires</h1>
 
@@ -36,7 +38,7 @@
     <?php
         endforeach;
     ?>
-    <?php unset($form); ?> <!-- détruit la variable -->
+    <?php // unset($form); ?> <!-- détruit la variable -->
 </table>
 
 <?php 

@@ -1,5 +1,7 @@
 <!-- REMPLISSAGE DU FORMULAIRE DYNAMIQUE ENVOYEE -->
-<?php ?>
+<p><?php  
+    include_once '/navigation.php';
+?></p>
 
 <div class="container">
     <form id="fb-render"></form> <!-- div ou l'on insère le formulaire créé par le framework form-builder -->

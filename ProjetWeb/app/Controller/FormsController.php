@@ -1,4 +1,5 @@
 <?php
+App::import('Controller','DbManual');
 
 class FormsController extends AppController 
 {
@@ -47,7 +48,7 @@ class FormsController extends AppController
         $this->set('forms', $this->Form->find('all', array('conditions' => array('statut_verifie' => 0) )));
     }
     
-    public function verify($id = null)
+   public function verify($id = null)
     {
         if(!$id)
         {
@@ -67,10 +68,10 @@ class FormsController extends AppController
             
             if($this->Form->save($this->request->data))
             {
-                //$this->Flash->success(__('Le formulaire a été validé'));
+                $this->Flash->success(__('Le formulaire a été validé'));
                 return $this->redirect(array('action' => 'to_verify_list'));
             }
-            //$this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
+            $this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
         }
         
         if (!$this->request->data)
@@ -146,7 +147,8 @@ class FormsController extends AppController
             
             if($this->Form->save($this->request->data))
             {
-                $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+                $connection = new DbManual();
+                $db = $connection->get_db_connection();
                 $count= 0; /* comptage de nombre de questions */
                 
                 /* fill up question table */
@@ -268,7 +270,8 @@ class FormsController extends AppController
             } 
             $query = $query . ');';
             
-            $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+            $connection = new DbManual();
+            $db = $connection->get_db_connection();
             $db->query($query);
             $db = null;
             //$this->Flash->success(__('Your form has been saved.'));

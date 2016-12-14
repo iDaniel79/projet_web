@@ -1,3 +1,7 @@
+<p><?php  
+    include_once '/navigation.php';
+?></p>
+
 <!-- VALIDER LE FORMULAIRE ENVOYE -->
 <?php
     echo $this->Form->create('Form');
