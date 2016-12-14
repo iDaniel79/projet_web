@@ -1,9 +1,9 @@
 <p><?php  
     include_once '/navigation.php';
 ?></p>
-<!-- AFFICHAGE DE TOUS LES FORMULAIRES DYNAMIQUES -->
+ <!--AFFICHAGE DE TOUS LES FORMULAIRES DYNAMIQUES--> 
 
-<h1><?php echo h($form['Form']['titre']);?></h1> <!-- affiche le titre du formulaire -->
+<h1><?php echo h($form['Form']['titre']); ?></h1> <!-- affiche le titre du formulaire -->
 
 <p><small>Créé le : <?php echo $form['Form']['created']; ?></small></p> <!-- affiche la date de création -->
 
@@ -11,6 +11,8 @@
     <form id="fb-render"></form> <!-- div ou l'on insère le formulaire créé par le framework form-builder -->
 </div>
 
+<!-- liste des frameworks requis  sont dans /View/Layouts/default.ctp -->
+<!-- script de création de formulaire selon la structure renvoyée -->
 <script>
     jQuery(document).ready(function($) {
         
