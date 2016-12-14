@@ -4,12 +4,6 @@ include_once '/navigation.php';
 
 <h1>Créer un nouveau formulaire</h1>
 
-<div class="container">
-    <!-- div qui va contenir l'environnement de génération du formulaire -->
-    <div id="fb-editor"></div>
-    <p id="message"></p>
-</div>
-
 <?php
     echo $this->Form->create('Form');
     echo $this->Form->input('titre');
@@ -17,6 +11,12 @@ include_once '/navigation.php';
     echo $this->Form->hidden('nb_question', array('id' => 'nb_question', 'value' => "none"));
     echo $this->Form->end(array('id' => 'saveStructForm', 'value' => 'Sauvegarder'));
 ?>
+
+<div class="container">
+    <!-- div qui va contenir l'environnement de génération du formulaire -->
+    <div id="fb-editor"></div>
+    <p id="message"></p>
+</div>
 
 <script>
     jQuery(document).ready(function($) {
