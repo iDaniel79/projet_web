@@ -33,16 +33,18 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
  //    public $components = array('DebugKit.Toolbar');
 
-     public $components = array('Session',
+    public $helpers = array ('Html', 'Form', 'Js');
+    
+    public $components = array('Flash', 'Session',
 					'Auth' => array(
 						'authenticate' => array(
 							'Form' => array( 
 								'fields' => array('username' => 'email'),
 								'scope'=> array('User.active' => 1 ) // verifie pour ce loguer tous ceux qui on un active  à 1 = activé
-												)
-											)
-									)
-					);
+                                                        )
+                                                )
+                                        )
+                                );
      
      
      

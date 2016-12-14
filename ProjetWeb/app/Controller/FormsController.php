@@ -35,11 +35,11 @@ class FormsController extends AppController
             
             if ($this->Form->save($this->request->data))
             {
-                //$this->Flash->success(__('Your form has been saved.'));
+                $this->Flash->success(__('Your form has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             }
             
-            //$this->Flash->error(__('Unable to add your form.'));
+            $this->Flash->error(__('Unable to add your form.'));
         }
     }
     
@@ -68,10 +68,10 @@ class FormsController extends AppController
             
             if($this->Form->save($this->request->data))
             {
-                //$this->Flash->success(__('Le formulaire a été validé'));
+                $this->Flash->success(__('Le formulaire a été validé'));
                 return $this->redirect(array('action' => 'to_verify_list'));
             }
-            //$this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
+            $this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
         }
         
         if (!$this->request->data)
@@ -108,10 +108,10 @@ class FormsController extends AppController
             
             if($this->Form->save($this->request->data))
             {
-                //$this->Flash->success(__('Le formulaire a été validé'));
+                $this->Flash->success(__('Le formulaire a été validé'));
                 return $this->redirect(array('action' => 'to_verify_list'));
             }
-            //$this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
+            $this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
         }
         
         if (!$this->request->data)
@@ -156,7 +156,7 @@ class FormsController extends AppController
                 $elements = explode(",", $element);
                 $limit = sizeof($elements);
                 $query_array = array();
-                $query_table = 'CREATE TABLE IF NOT EXISTS `blog`.`reponse'.$id.'` '
+                $query_table = 'CREATE TABLE IF NOT EXISTS `db_formulaires`.`reponse'.$id.'` '
                         . ' (`id` INT(11) NOT NULL AUTO_INCREMENT,'
                         . '`id_UF` INT(11) NOT NULL,'
                         . '`id_form` INT (11) NOT NULL,'
@@ -199,17 +199,19 @@ class FormsController extends AppController
                 /* create formular table */
                 $db->query($query_table);
                 /* set up relations */
-                $query_links = 'ALTER TABLE `reponse'.$id.'` ADD CONSTRAINT `fk_forms` FOREIGN KEY (`id_form`) REFERENCES `forms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_uf` FOREIGN KEY (`id_uf`) REFERENCES `ufs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;';
-                
+                //$query_links = 'ALTER TABLE `reponse'.$id.'` ADD CONSTRAINT `fk_forms` FOREIGN KEY (`id_form`) REFERENCES `forms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_uf` FOREIGN KEY (`id_uf`) REFERENCES `ufs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;';
+                $query_links = 'ALTER TABLE `reponse'.$id.'` ADD CONSTRAINT `fk_forms` FOREIGN KEY (`id_form`) REFERENCES `forms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `fk_questions` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;';
+                debug($query_links);
+                die();
                 $db->query($query_links);
 
                 /* disable connection to db */
                 $db = null;
                 
-                //$this->Flash->success(__('Le formulaire a été validé'));
+                $this->Flash->success(__('Le formulaire a été validé'));
                 return $this->redirect(array('action' => 'to_valid_list'));
             }
-            //$this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
+            $this->Flash->error(__('Le formulaire n\'a pas pu être validé'));
         }
         
         if (!$this->request->data)
@@ -275,7 +277,7 @@ class FormsController extends AppController
             $db = $connection->get_db_connection();
             $db->query($query);
             $db = null;
-            //$this->Flash->success(__('Your form has been saved.'));
+            $this->Flash->success(__('Your form has been saved.'));
             return $this->redirect(array('action' => 'index'));
 
         }
