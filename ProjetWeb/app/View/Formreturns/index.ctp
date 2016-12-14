@@ -19,8 +19,8 @@
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Consulter'), array('action' => 'view', $formreturn['Formreturn']['id'])); ?>
-			<?php echo $this->Html->link(__('Editer'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Supprimer'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $formreturn['Formreturn']['id']))); ?>
+			<?php //echo $this->Html->link(__('Editer'), array('action' => 'edit', $formreturn['Formreturn']['id'])); ?>
+			<?php //echo $this->Form->postLink(__('Supprimer'), array('action' => 'delete', $formreturn['Formreturn']['id']), array('confirm' => __('Êtes-vous sûr de vouloir supprimer le # %s?', $formreturn['Formreturn']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
