@@ -22,7 +22,7 @@
 			echo $this->Form->input('Role',array('label' => 'Rôle'));
 			echo $this->Form->input('Uf',array('label' => 'Unités de formation'));
 		}
-		echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));			
+				
 					
 	?>
 	</fieldset>

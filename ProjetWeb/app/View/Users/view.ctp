@@ -84,6 +84,13 @@
 			<?php echo $this->Html->link($user['Classrooms']['id'], array('controller' => 'classrooms', 'action' => 'view', $user['Classrooms']['id'])); ?>
 			&nbsp;
 		</dd>
+		
+		 <?php    if($_SESSION['id_user'] == h($user['User']['id']))
+            {                
+                echo $this->Html->link(__('Changer son mot de passe'), array('controller' => 'users', 'action' => 'changepassword'));            
+            }    
+        ?>
+        
 	</dl>
 </div>
 <div class="actions">
